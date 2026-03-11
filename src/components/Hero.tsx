@@ -84,10 +84,10 @@ export default function Hero() {
       </div>
 
       {/* Bottom wave - smooth transition to bg color */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-[80px] sm:h-[120px]">
+      <div className="absolute -bottom-1 left-0 right-0 z-10">
+        <svg viewBox="0 0 1440 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full block" style={{ height: "120px" }}>
           <path
-            d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z"
+            d="M0,50 C360,110 720,0 1080,50 C1260,75 1380,65 1440,50 L1440,150 L0,150 Z"
             fill="#f0f5f9"
           />
         </svg>
