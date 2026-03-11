@@ -11,19 +11,27 @@ const slides = [
 
 // Each slide gets a different Ken Burns direction
 const kenBurns = [
-  "origin-center scale-100 group-data-[active]:scale-110",
-  "origin-top-left scale-110 group-data-[active]:scale-100",
-  "origin-bottom-right scale-100 group-data-[active]:scale-[1.12]",
+  { from: "scale(1)", to: "scale(1.12)", origin: "center" },
+  { from: "scale(1.1)", to: "scale(1)", origin: "top left" },
+  { from: "scale(1)", to: "scale(1.12)", origin: "bottom right" },
 ];
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // Small delay so first slide starts from "from" and transitions to "to"
+    const kickoff = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setMounted(true));
+    });
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 6000);
-    return () => clearInterval(timer);
+    return () => {
+      cancelAnimationFrame(kickoff);
+      clearInterval(timer);
+    };
   }, []);
 
   return (
@@ -37,13 +45,13 @@ export default function Hero() {
               <br />
               <span className="text-gold">mit staatlicher Förderung.</span>
             </h1>
-            <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-white/70 mb-8 max-w-xl leading-relaxed">
               Wir finden alle staatlichen Förderungen, die Ihnen zustehen –
               komplett kostenlos und unverbindlich!
             </p>
 
             {/* Benefit checklist */}
-            <div className="space-y-4 mb-10">
+            <div className="space-y-3 mb-8">
               {[
                 "Top-Expertise im Förderdschungel",
                 "Beratung, die zu Ihrer Situation passt",
@@ -55,29 +63,29 @@ export default function Hero() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-white/90 font-medium">{item}</span>
+                  <span className="text-white/80 text-sm font-medium">{item}</span>
                 </div>
               ))}
             </div>
 
             <a
               href="#kontakt"
-              className="inline-flex items-center justify-center px-8 py-4 bg-gold text-navy font-bold rounded-full text-lg hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gold text-navy font-bold rounded-full text-base sm:text-lg hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
             >
               Unverbindliches Gespräch vereinbaren
             </a>
 
             {/* Trust badge with profile pictures */}
-            <div className="mt-10 flex items-center gap-4">
+            <div className="mt-8 flex items-center gap-3">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Image
                     key={i}
                     src={`/images/Profile (${i}).jpg`}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className="h-10 w-10 rounded-full border-2 border-white/30 object-cover"
+                    alt="Zufriedene Kund:innen der DIFAG"
+                    width={36}
+                    height={36}
+                    className="h-9 w-9 rounded-full border-2 border-white/30 object-cover"
                   />
                 ))}
               </div>
@@ -95,27 +103,30 @@ export default function Hero() {
           {/* Hero Image Slider with Ken Burns */}
           <div className="hidden lg:block relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[450px]">
-              {slides.map((src, i) => (
-                <div
-                  key={i}
-                  className="group absolute inset-0"
-                  data-active={i === current ? "" : undefined}
-                >
-                  <Image
-                    src={src}
-                    alt="Förderberatung"
-                    fill
-                    className={`object-cover transition-all duration-[6000ms] ease-linear ${kenBurns[i]} ${
-                      i === current ? "opacity-100" : "opacity-0"
-                    } transition-opacity duration-1000`}
-                    style={{
-                      transitionProperty: "opacity, transform",
-                      transitionDuration: i === current ? "1000ms, 6000ms" : "1000ms, 6000ms",
-                    }}
-                    priority={i === 0}
-                  />
-                </div>
-              ))}
+              {slides.map((src, i) => {
+                const active = i === current;
+                const kb = kenBurns[i];
+                const shouldAnimate = active && mounted;
+                return (
+                  <div key={i} className="absolute inset-0">
+                    <Image
+                      src={src}
+                      alt="Förderberatung – Beratungsgespräch für staatliche Zuschüsse"
+                      fill
+                      className="object-cover"
+                      style={{
+                        opacity: active ? 1 : 0,
+                        transform: shouldAnimate ? kb.to : kb.from,
+                        transformOrigin: kb.origin,
+                        transition: active
+                          ? "opacity 1s ease, transform 6s linear"
+                          : "opacity 1s ease, transform 0s linear",
+                      }}
+                      priority={i === 0}
+                    />
+                  </div>
+                );
+              })}
               <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent z-10" />
             </div>
           </div>

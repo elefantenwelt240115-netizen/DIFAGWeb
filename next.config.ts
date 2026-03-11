@@ -8,7 +8,10 @@ const nextConfig: NextConfig = {
         hostname: "deutsche-foerderberatung.de",
       },
     ],
+    formats: ["image/avif", "image/webp"],
   },
+  compress: true,
+  poweredByHeader: false,
 };
 
 export default nextConfig;

@@ -96,9 +96,10 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-navy mb-2">
-                    Wann sind Sie am besten erreichbar?
+                    Wann sind Sie am besten erreichbar? *
                   </label>
                   <select
+                    required
                     value={formData.availability}
                     onChange={(e) =>
                       setFormData({ ...formData, availability: e.target.value })
@@ -108,7 +109,7 @@ export default function ContactForm() {
                     <option value="">Bitte wählen</option>
                     <option value="vormittags">Vormittags (8:45 - 12:00)</option>
                     <option value="nachmittags">Nachmittags (12:00 - 16:00)</option>
-                    <option value="flexibel">Flexibel</option>
+                    <option value="abends">Abends (16:00 - 19:00)</option>
                   </select>
                 </div>
                 <div className="flex items-start gap-3">
@@ -125,7 +126,7 @@ export default function ContactForm() {
                     Mit Absenden des Formulars stimme ich zu, dass meine Angaben
                     zur Beantwortung meiner Anfrage erhoben und verarbeitet werden.
                     Mehr Informationen in der{" "}
-                    <a href="#" className="text-gold underline">
+                    <a href="/datenschutz" className="text-gold underline">
                       Datenschutzerklärung
                     </a>
                     .
@@ -179,7 +180,7 @@ export default function ContactForm() {
             <div className="relative rounded-2xl overflow-hidden">
               <Image
                 src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_kontaktoverlay.jpg"
-                alt="Förderberatung"
+                alt="Förderberatung – Kontaktieren Sie unser Team in Düsseldorf"
                 width={600}
                 height={350}
                 className="object-cover w-full h-[280px]"

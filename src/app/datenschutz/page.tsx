@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Datenschutzerklärung – Deutsche Investitions- und Förderberatung AG",
+  title: "Datenschutzerklärung",
+  description:
+    "Datenschutzerklärung der Deutsche Investitions- und Förderberatung AG.",
+  robots: { index: false, follow: true },
 };
 
 function H2({ children }: { children: React.ReactNode }) {

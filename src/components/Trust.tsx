@@ -21,7 +21,7 @@ const reviews = [
     platform: "Google",
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2026/02/google_g_icon_download.png",
     rating: 4.9,
-    count: "6.000+",
+    count: "10.000+",
     link: "https://www.google.com/maps/place/Deutsche+Investitions-+und+F%C3%B6rderberatung+AG/@51.2562,6.7898,17z/data=!4m8!3m7!1s0x47b8ca0c3906b4a1:0x2e4e6a3b0d4f8c7a!8m2!3d51.2562!4d6.7898!9m1!1b1!16s",
   },
   {
@@ -31,17 +31,6 @@ const reviews = [
     count: "561",
     link: "https://de.trustpilot.com/review/deutsche-foerderberatung.de",
   },
-];
-
-const mediaLogos = [
-  { name: "WAZ", src: "/images/waz.png", href: "https://www.waz.de/advertorials/foerderung-fuer-familien.html" },
-  { name: "finanzen.net", src: "/images/finanzennet.png", href: null },
-  { name: "ntv", src: "/images/ntv.png", href: "https://unternehmen.n-tv.de/staatliche-foerderungen.html" },
-  { name: "WELT", src: "/images/welt.png", href: "https://unternehmen.welt.de/finanzen-immobilien/staatliche-foerderungen.html" },
-  { name: "FOCUS online", src: "/images/focusonline.jpg", href: "https://unternehmen.focus.de/foerderung-fuer-kinder.html" },
-  { name: "Handelsblatt", src: "/images/handelsblatt.png", href: "https://www.handelsblatt.com/adv/firmen/foerderberatung.html" },
-  { name: "Finanzen100", src: "/images/finanzen100.png", href: "https://unternehmen.finanzen100.de/foerderung-fuer-immobilien.html" },
-  { name: "WirtschaftsWoche", src: "/images/wirtschaftswoche.png", href: null },
 ];
 
 export default function Trust() {
@@ -57,12 +46,12 @@ export default function Trust() {
           </h2>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <a
             href="https://verbraucherschutz.de/deutsche-investitions-und-foerderberatung/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-4"
+            className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 sm:gap-4"
           >
             <Image
               src="https://deutsche-foerderberatung.de/wp-content/uploads/2026/02/deutsche_investitionsberatung_website_siegel_verbraucherschutz.jpg"
@@ -83,7 +72,7 @@ export default function Trust() {
               href={r.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-4 min-w-[250px]"
+              className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 sm:gap-4 sm:min-w-[250px]"
             >
               <Image
                 src={r.icon}
@@ -101,42 +90,6 @@ export default function Trust() {
               </div>
             </a>
           ))}
-        </div>
-
-        {/* Bekannt aus - Marquee */}
-        <div className="text-center mb-8">
-          <p className="text-navy/50 font-medium text-sm tracking-widest uppercase">
-            Bekannt aus
-          </p>
-        </div>
-
-        <div className="relative overflow-hidden py-6">
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-bg to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-bg to-transparent z-10" />
-
-          <div className="flex animate-marquee whitespace-nowrap items-center">
-            {[...mediaLogos, ...mediaLogos].map((logo, i) => {
-              const inner = (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img src={logo.src} alt={logo.name} className="h-8 sm:h-10 w-auto" />
-              );
-              return logo.href ? (
-                <a
-                  key={i}
-                  href={logo.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-10 flex-shrink-0 opacity-40 hover:opacity-80 transition-opacity"
-                >
-                  {inner}
-                </a>
-              ) : (
-                <div key={i} className="mx-10 flex-shrink-0 opacity-40 hover:opacity-80 transition-opacity">
-                  {inner}
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </section>

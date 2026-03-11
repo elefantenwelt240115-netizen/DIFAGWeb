@@ -56,8 +56,8 @@ export default function WhyUs() {
           </div>
 
           {/* Right: Advisor card */}
-          <div className="relative">
-            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+          <div className="relative overflow-hidden sm:overflow-visible">
+            <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100">
               {/* Decorative quote mark */}
               <svg
                 className="h-12 w-12 text-gold/30 mb-4"
@@ -76,7 +76,7 @@ export default function WhyUs() {
               <div className="flex items-center gap-4">
                 <Image
                   src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_ansprechpartner_name_vorname.png"
-                  alt="Sarah"
+                  alt="Sarah – Beraterin bei Deutsche Investitions- und Förderberatung AG"
                   width={60}
                   height={60}
                   className="h-14 w-14 rounded-full object-cover"

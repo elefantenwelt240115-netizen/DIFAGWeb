@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Vermittlererstinfo – Deutsche Investitions- und Förderberatung AG",
+  title: "Vermittlererstinfo",
+  description:
+    "Kundeninformation gemäß § 15 VersVermV der Deutsche Investitions- und Förderberatung AG.",
+  robots: { index: false, follow: true },
 };
 
 export default function Vermittlererstinfo() {

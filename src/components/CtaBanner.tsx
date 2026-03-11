@@ -18,7 +18,7 @@ export default function CtaBanner() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#kontakt"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gold text-navy font-bold rounded-full text-lg hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/20"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-4 bg-gold text-navy font-bold rounded-full text-base sm:text-lg hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/20"
               >
                 Unverbindliches Gespräch vereinbaren
               </a>
@@ -39,7 +39,7 @@ export default function CtaBanner() {
                   <Image
                     key={i}
                     src={`/images/Profile (${i}).jpg`}
-                    alt=""
+                    alt="Förderexpert:in der DIFAG"
                     width={48}
                     height={48}
                     className="h-12 w-12 rounded-full border-2 border-white/30 object-cover"

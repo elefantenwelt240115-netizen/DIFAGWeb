@@ -1,0 +1,5 @@
+# Deutsche Investitions- und Förderberatung AG
+User-agent: *
+Allow: /
+
+Sitemap: https://deutsche-foerderberatung.de/sitemap.xml

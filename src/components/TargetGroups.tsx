@@ -35,7 +35,7 @@ export default function TargetGroups() {
           <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">
             Passgenau für Sie
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-4">
             Staatliche Förderung für Ihre Situation
           </h2>
         </div>

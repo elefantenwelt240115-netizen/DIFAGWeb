@@ -10,7 +10,7 @@ export default function ChatWidget() {
     name: "",
     email: "",
     phone: "",
-    message: "",
+    availability: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -19,7 +19,7 @@ export default function ChatWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed bottom-6 right-6 z-50">
       {/* Contact Form Panel */}
       {open && (
         <div className="absolute bottom-20 right-0 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden animate-fade-in-up">
@@ -88,15 +88,19 @@ export default function ChatWidget() {
                   }
                   className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-bg text-sm focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold text-navy"
                 />
-                <textarea
-                  placeholder="Ihre Nachricht (optional)"
-                  rows={3}
-                  value={formData.message}
+                <select
+                  required
+                  value={formData.availability}
                   onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
+                    setFormData({ ...formData, availability: e.target.value })
                   }
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-bg text-sm focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold text-navy resize-none"
-                />
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-bg text-sm focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold text-navy"
+                >
+                  <option value="">Wann sind Sie am besten erreichbar? *</option>
+                  <option value="vormittags">Vormittags (8:45 - 12:00)</option>
+                  <option value="nachmittags">Nachmittags (12:00 - 16:00)</option>
+                  <option value="abends">Abends (16:00 - 19:00)</option>
+                </select>
                 <p className="text-xs text-navy/40 leading-relaxed">
                   Mit Absenden stimme ich der{" "}
                   <a href="/datenschutz" className="text-gold underline">

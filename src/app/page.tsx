@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import BekanntAus from "@/components/BekanntAus";
 import TargetGroups from "@/components/TargetGroups";
 import Benefits from "@/components/Benefits";
 import Stats from "@/components/Stats";
@@ -19,7 +20,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Trust />
+        <BekanntAus />
         <TargetGroups />
         <Benefits />
         <Stats />
@@ -29,6 +30,7 @@ export default function Home() {
         <CtaBanner />
         <ContactForm />
         <VideoSection />
+        <Trust />
       </main>
       <Footer />
       <CookieBanner />

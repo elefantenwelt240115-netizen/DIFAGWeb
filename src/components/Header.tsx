@@ -31,7 +31,7 @@ function getAvailability(): { available: boolean; label: string } {
     return { available: false, label: "Montag erreichbar" };
   }
   if (day === 0) {
-    return { available: false, label: "Morgen erreichbar" };
+    return { available: false, label: "Montag erreichbar" };
   }
   // Weekday before opening or after closing
   if (time < openTime) {
@@ -133,7 +133,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Image
             src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_navigation_ansprechpartner.png"
-            alt="Ihre Ansprechpartner"
+            alt="Ihre persönlichen Ansprechpartner bei der DIFAG"
             width={100}
             height={40}
             className="hidden lg:block h-10 w-auto"

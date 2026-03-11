@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Impressum – Deutsche Investitions- und Förderberatung AG",
+  title: "Impressum",
+  description:
+    "Impressum der Deutsche Investitions- und Förderberatung AG, Opitzstraße 12, 40470 Düsseldorf.",
+  robots: { index: false, follow: true },
 };
 
 export default function Impressum() {

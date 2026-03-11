@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const strengths = [
   {
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_1.svg",
@@ -44,62 +46,65 @@ export default function Strengths() {
           </h2>
         </div>
 
-        {/* Zigzag steps */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical connector line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 hidden md:block" />
-
-          <div className="space-y-12 md:space-y-0">
-            {strengths.map((s, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <div key={i} className="relative md:flex md:items-center md:min-h-[160px]">
-                  {/* Step dot on center line */}
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:flex h-10 w-10 rounded-full bg-gold text-navy font-bold text-sm items-center justify-center shadow-md">
+        {/* Mobile: Simple stacked cards */}
+        <div className="md:hidden space-y-4">
+          {strengths.map((s, i) => (
+            <div key={i} className="bg-bg rounded-2xl p-5 border border-gray-100 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="relative flex-shrink-0">
+                  <Image src={s.icon} alt={s.title} width={48} height={48} className="h-12 w-12" />
+                  <span className="absolute -top-2 -right-2 h-6 w-6 rounded-full bg-gold text-navy text-xs font-bold flex items-center justify-center">
                     {i + 1}
-                  </div>
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-navy mb-1">{s.title}</h3>
+                  <p className="text-navy/60 text-sm leading-relaxed">{s.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
 
-                  {/* Left side */}
-                  <div className={`md:w-1/2 ${isLeft ? "md:pr-16" : "md:order-2 md:pl-16"}`}>
-                    {(isLeft || typeof window === "undefined") && (
-                      <div className={`flex gap-5 items-start bg-bg rounded-2xl p-6 border border-gray-100 ${isLeft ? "" : "md:hidden"}`}>
-                        {/* Mobile step number */}
-                        <div className="flex-shrink-0 md:hidden h-8 w-8 rounded-full bg-gold text-navy font-bold text-xs flex items-center justify-center">
-                          {i + 1}
-                        </div>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={s.icon} alt="" className="h-16 w-16 flex-shrink-0 hidden md:block" />
-                        <div>
-                          <h3 className="text-lg font-bold text-navy mb-1">{s.title}</h3>
-                          <p className="text-navy/60 text-sm leading-relaxed">{s.description}</p>
-                        </div>
-                      </div>
-                    )}
-                    {!isLeft && (
-                      <div className="hidden md:block" />
-                    )}
-                  </div>
+        {/* Desktop: Vertical Timeline */}
+        <div className="relative max-w-5xl mx-auto hidden md:block">
+          {/* Vertical line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gold/20 -translate-x-px" />
 
-                  {/* Right side */}
-                  <div className={`md:w-1/2 ${isLeft ? "md:order-2 md:pl-16" : "md:pr-16"}`}>
-                    {!isLeft && (
-                      <div className="flex gap-5 items-start bg-bg rounded-2xl p-6 border border-gray-100">
-                        <div className="flex-shrink-0 md:hidden h-8 w-8 rounded-full bg-gold text-navy font-bold text-xs flex items-center justify-center">
-                          {i + 1}
-                        </div>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={s.icon} alt="" className="h-16 w-16 flex-shrink-0 hidden md:block" />
-                        <div>
-                          <h3 className="text-lg font-bold text-navy mb-1">{s.title}</h3>
-                          <p className="text-navy/60 text-sm leading-relaxed">{s.description}</p>
-                        </div>
+          {strengths.map((s, i) => {
+            const isLeft = i % 2 === 0;
+            return (
+              <div key={i} className="relative mb-12 last:mb-0">
+                {/* Numbered circle on the line */}
+                <div className="absolute left-1/2 -translate-x-1/2 z-10 h-12 w-12 rounded-full bg-gold text-navy font-bold text-lg flex items-center justify-center shadow-lg border-4 border-white">
+                  {i + 1}
+                </div>
+
+                {/* Card */}
+                <div
+                  className={`w-[calc(50%-3rem)] ${
+                    isLeft ? "mr-auto pr-0" : "ml-auto pl-0"
+                  }`}
+                >
+                  <div className="bg-bg rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-start gap-4">
+                      <Image src={s.icon} alt={s.title} width={56} height={56} className="h-14 w-14 flex-shrink-0" />
+                      <div>
+                        <h3 className="text-lg font-bold text-navy mb-1">{s.title}</h3>
+                        <p className="text-navy/60 text-sm leading-relaxed">{s.description}</p>
                       </div>
-                    )}
+                    </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Connector line from circle to card */}
+                <div
+                  className="absolute top-5 h-px bg-gold/20 w-8"
+                  style={isLeft ? { left: "calc(50% - 3.5rem)" } : { left: "calc(50% + 1.5rem)" }}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

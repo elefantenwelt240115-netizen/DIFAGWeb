@@ -34,7 +34,7 @@ export default function Benefits() {
           <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">
             Warum DIFAG?
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-4">
             Ihre Vorteile auf einen Blick
           </h2>
         </div>
