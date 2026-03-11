@@ -1,6 +1,31 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
+const slides = [
+  "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_landingpage_slider_01.jpg",
+  "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_landingpage_slider_02.jpg",
+  "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_landingpage_slider_03.jpg",
+];
+
+// Each slide gets a different Ken Burns direction
+const kenBurns = [
+  "origin-center scale-100 group-data-[active]:scale-110",
+  "origin-top-left scale-110 group-data-[active]:scale-100",
+  "origin-bottom-right scale-100 group-data-[active]:scale-[1.12]",
+];
+
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden hero-silk">
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
@@ -67,23 +92,37 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Image Slider with Ken Burns */}
           <div className="hidden lg:block relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://deutsche-foerderberatung.de/wp-content/uploads/2026/02/deutsche_investitionsberatung_website_startseite_header.jpg"
-                alt="Förderberatung im Gespräch"
-                width={600}
-                height={450}
-                className="object-cover w-full h-[450px]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[450px]">
+              {slides.map((src, i) => (
+                <div
+                  key={i}
+                  className="group absolute inset-0"
+                  data-active={i === current ? "" : undefined}
+                >
+                  <Image
+                    src={src}
+                    alt="Förderberatung"
+                    fill
+                    className={`object-cover transition-all duration-[6000ms] ease-linear ${kenBurns[i]} ${
+                      i === current ? "opacity-100" : "opacity-0"
+                    } transition-opacity duration-1000`}
+                    style={{
+                      transitionProperty: "opacity, transform",
+                      transitionDuration: i === current ? "1000ms, 6000ms" : "1000ms, 6000ms",
+                    }}
+                    priority={i === 0}
+                  />
+                </div>
+              ))}
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent z-10" />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom wave - smooth transition to bg color */}
+      {/* Bottom wave */}
       <div className="absolute -bottom-1 left-0 right-0 z-10">
         <svg viewBox="0 0 1440 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full block" style={{ height: "120px" }}>
           <path
