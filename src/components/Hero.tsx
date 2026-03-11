@@ -2,34 +2,43 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background gradient + image */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy/90 z-10" />
-        <Image
-          src="https://deutsche-foerderberatung.de/wp-content/uploads/2026/02/deutsche_investitionsberatung_website_startseite_header.jpg"
-          alt=""
-          fill
-          className="object-cover opacity-30"
-          priority
-        />
-      </div>
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden hero-silk">
+      {/* Silk reflection layers are handled by CSS (.hero-silk, ::before, ::after) */}
 
       <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text */}
           <div className="animate-fade-in-up">
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-              Für mehr Geld,
+              Finanzielle Freiheit
               <br />
-              weniger Stress und
+              genießen –
               <br />
-              <span className="text-gold">echte Lebensqualität.</span>
+              <span className="text-gold">mit staatlicher Förderung.</span>
             </h1>
             <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
-              Lassen Sie uns gemeinsam Ihren staatlichen Förderanspruch prüfen –
+              Wir finden alle staatlichen Förderungen, die Ihnen zustehen –
               komplett kostenlos und unverbindlich!
             </p>
+
+            {/* Benefit checklist */}
+            <div className="space-y-4 mb-10">
+              {[
+                "Top-Expertise im Förderdschungel",
+                "Beratung, die zu Ihrer Situation passt",
+                "Clever sparen, Vermögen aufbauen",
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="h-6 w-6 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                    <svg className="h-3.5 w-3.5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-white/90 font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#kontakt"
@@ -39,16 +48,18 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Trust badge inline */}
+            {/* Trust badge with profile pictures */}
             <div className="mt-10 flex items-center gap-4">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <div
+                  <Image
                     key={i}
-                    className="h-10 w-10 rounded-full bg-gradient-to-br from-gold/40 to-gold/20 border-2 border-white/20 flex items-center justify-center text-white text-xs font-bold"
-                  >
-                    {["A", "M", "S", "K", "T"][i - 1]}
-                  </div>
+                    src={`/images/Profile (${i}).jpg`}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-full border-2 border-white/30 object-cover"
+                  />
                 ))}
               </div>
               <div>

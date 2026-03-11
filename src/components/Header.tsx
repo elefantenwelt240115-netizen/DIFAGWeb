@@ -4,14 +4,57 @@ import { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import Image from "next/image";
 
+function getAvailability(): { available: boolean; label: string } {
+  const now = new Date();
+  const day = now.getDay(); // 0=Sun, 1=Mon, ..., 5=Fri, 6=Sat
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const time = hours * 60 + minutes;
+
+  const openTime = 8 * 60 + 45; // 8:45
+  const closeWeekday = 16 * 60; // 16:00
+  const closeFriday = 13 * 60;  // 13:00
+
+  // Check if currently within business hours
+  if (day >= 1 && day <= 4 && time >= openTime && time < closeWeekday) {
+    return { available: true, label: "Jetzt erreichbar" };
+  }
+  if (day === 5 && time >= openTime && time < closeFriday) {
+    return { available: true, label: "Jetzt erreichbar" };
+  }
+
+  // Outside hours - determine next business day
+  if (day === 5 && time >= closeFriday) {
+    return { available: false, label: "Montag erreichbar" };
+  }
+  if (day === 6) {
+    return { available: false, label: "Montag erreichbar" };
+  }
+  if (day === 0) {
+    return { available: false, label: "Morgen erreichbar" };
+  }
+  // Weekday before opening or after closing
+  if (time < openTime) {
+    return { available: false, label: "Heute erreichbar" };
+  }
+  // After close Mon-Thu
+  return { available: false, label: "Morgen erreichbar" };
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [availability, setAvailability] = useState<{ available: boolean; label: string } | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    setAvailability(getAvailability());
+    const interval = setInterval(() => setAvailability(getAvailability()), 60000);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      clearInterval(interval);
+    };
   }, []);
 
   return (
@@ -86,15 +129,20 @@ export default function Header() {
           </a>
         </nav>
 
-        {/* Right side: Ansprechpartner + Phone + CTA */}
+        {/* Right side: Ansprechpartner + Phone + Status */}
         <div className="flex items-center gap-4">
-          <Image
-            src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_navigation_ansprechpartner.png"
-            alt="Ihre Ansprechpartner"
-            width={80}
-            height={40}
-            className="hidden lg:block h-10 w-auto rounded-full"
-          />
+          <div className="flex -space-x-1 hidden lg:flex">
+            {[1, 2, 3].map((i) => (
+              <Image
+                key={i}
+                src={`/images/Profile (${i}).jpg`}
+                alt=""
+                width={32}
+                height={32}
+                className="h-8 w-8 rounded-full border-2 border-white/30 object-cover"
+              />
+            ))}
+          </div>
           <a
             href="tel:021198070110"
             suppressHydrationWarning
@@ -104,8 +152,21 @@ export default function Header() {
           >
             <Phone className="h-4 w-4" />
             <span suppressHydrationWarning>0211-980701-10</span>
-            <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
           </a>
+          {availability && (
+            <span className="hidden sm:flex items-center gap-1.5 text-xs font-medium">
+              <span
+                className={`inline-block h-2 w-2 rounded-full ${
+                  availability.available
+                    ? "bg-emerald-400 animate-pulse"
+                    : "bg-orange-400"
+                }`}
+              />
+              <span className={scrolled ? "text-navy/60" : "text-white/70"}>
+                {availability.label}
+              </span>
+            </span>
+          )}
 
           {/* Mobile menu button */}
           <button
@@ -158,6 +219,16 @@ export default function Header() {
             >
               <Phone className="h-4 w-4" />
               0211-980701-10
+              {availability && (
+                <span className="flex items-center gap-1.5 text-xs font-medium text-navy/60">
+                  <span
+                    className={`inline-block h-2 w-2 rounded-full ${
+                      availability.available ? "bg-emerald-400" : "bg-orange-400"
+                    }`}
+                  />
+                  {availability.label}
+                </span>
+              )}
             </a>
           </nav>
         </div>
