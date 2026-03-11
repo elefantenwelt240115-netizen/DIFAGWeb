@@ -4,6 +4,7 @@ import Benefits from "@/components/Benefits";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
 import ContactForm from "@/components/ContactForm";
+import VideoSection from "@/components/VideoSection";
 import Trust from "@/components/Trust";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
@@ -19,6 +20,7 @@ export default function Home() {
         <Stats />
         <Services />
         <ContactForm />
+        <VideoSection />
         <Trust />
       </main>
       <Footer />
