@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <Image
-                src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_logo.png"
+                src="/images/difag.png"
                 alt="DIFAG Logo"
                 width={40}
                 height={40}
@@ -76,13 +76,13 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-5 text-gold">Rechtliches</h4>
             <div className="space-y-3 text-sm text-white/70">
-              <a href="#" className="block hover:text-white transition-colors">
+              <a href="/impressum" className="block hover:text-white transition-colors">
                 Impressum
               </a>
-              <a href="#" className="block hover:text-white transition-colors">
+              <a href="/datenschutz" className="block hover:text-white transition-colors">
                 Datenschutzerklärung
               </a>
-              <a href="#" className="block hover:text-white transition-colors">
+              <a href="/vermittlererstinfo" className="block hover:text-white transition-colors">
                 Vermittlererstinfo
               </a>
             </div>

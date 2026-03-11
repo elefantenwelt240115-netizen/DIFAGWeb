@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40">
+  <circle cx="16" cy="20" r="14" fill="#35A0DA"/>
+  <text x="12" y="25" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="white">F</text>
+  <text x="36" y="30" font-family="Arial, sans-serif" font-weight="700" font-size="26" fill="#333">Finanzen</text>
+  <text x="170" y="30" font-family="Arial, sans-serif" font-weight="700" font-size="26" fill="#FA3924">100</text>
+</svg>

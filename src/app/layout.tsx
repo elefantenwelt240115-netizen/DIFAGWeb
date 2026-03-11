@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: "Deutsche Investitions- und Förderberatung AG",
   description:
     "Für mehr Geld, weniger Stress und echte Lebensqualität. Lassen Sie uns gemeinsam Ihren staatlichen Förderanspruch prüfen – komplett kostenlos und unverbindlich!",
+  icons: {
+    icon: "/images/difag.png",
+    apple: "/images/difag.png",
+  },
   openGraph: {
     title: "Deutsche Investitions- und Förderberatung AG",
     description:

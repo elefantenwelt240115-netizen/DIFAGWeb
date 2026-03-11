@@ -26,7 +26,7 @@ export default function Header() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
           <Image
-            src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_logo.png"
+            src="/images/difag.png"
             alt="DIFAG Logo"
             width={48}
             height={48}

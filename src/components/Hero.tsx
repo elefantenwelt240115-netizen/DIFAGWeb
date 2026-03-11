@@ -19,7 +19,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text */}
           <div className="animate-fade-in-up">
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
               Für mehr Geld,
               <br />
               weniger Stress und
@@ -36,12 +36,6 @@ export default function Hero() {
                 className="inline-flex items-center justify-center px-8 py-4 bg-gold text-navy font-bold rounded-full text-lg hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
               >
                 Unverbindliches Gespräch vereinbaren
-              </a>
-              <a
-                href="tel:021198070110"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full text-lg hover:bg-white/10 transition-all duration-300"
-              >
-                0211-980701-10
               </a>
             </div>
 

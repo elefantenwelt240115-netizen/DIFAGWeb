@@ -20,28 +20,28 @@ const reviews = [
   {
     platform: "Google",
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2026/02/google_g_icon_download.png",
-    rating: 4.8,
-    count: 287,
-    link: "#",
+    rating: 4.9,
+    count: "6.000+",
+    link: "https://www.google.com/search?q=Deutsche+Investitions-+und+F%C3%B6rderberatung+AG+Rezensionen&rflfq=1&tbm=lcl#lkt=LocalPoiReviews",
   },
   {
     platform: "Trustpilot",
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2026/03/white-SVG-Generic-logo-sticker-L.svg",
-    rating: 4.7,
-    count: 412,
-    link: "#",
+    rating: 4.8,
+    count: "561",
+    link: "https://de.trustpilot.com/review/deutsche-foerderberatung.de",
   },
 ];
 
 const mediaLogos = [
-  "WirtschaftsWoche",
-  "WAZ",
-  "finanzen.net",
-  "ntv",
-  "WELT",
-  "FOCUS online",
-  "Handelsblatt",
-  "Finanzen100",
+  { name: "WirtschaftsWoche", src: "/images/logos/wirtschaftswoche.svg" },
+  { name: "WAZ", src: "/images/logos/waz.svg" },
+  { name: "finanzen.net", src: "/images/logos/finanzen-net.svg" },
+  { name: "ntv", src: "/images/logos/ntv.svg" },
+  { name: "WELT", src: "/images/logos/welt.svg" },
+  { name: "FOCUS online", src: "/images/logos/focus-online.svg" },
+  { name: "Handelsblatt", src: "/images/logos/handelsblatt.svg" },
+  { name: "Finanzen100", src: "/images/logos/finanzen100.svg" },
 ];
 
 export default function Trust() {
@@ -60,7 +60,12 @@ export default function Trust() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
           {/* Verbraucherschutz Seal */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex items-center gap-4">
+          <a
+            href="https://verbraucherschutz.de/deutsche-investitions-und-foerderberatung/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-4"
+          >
             <Image
               src="https://deutsche-foerderberatung.de/wp-content/uploads/2026/02/deutsche_investitionsberatung_website_siegel_verbraucherschutz.jpg"
               alt="Verbraucherschutz.de Siegel"
@@ -72,13 +77,15 @@ export default function Trust() {
               <p className="font-bold text-navy text-sm">Verbraucherschutz.de</p>
               <p className="text-navy/50 text-xs">Service Versprechen</p>
             </div>
-          </div>
+          </a>
 
           {/* Review Cards */}
           {reviews.map((r, i) => (
             <a
               key={i}
               href={r.link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-4 min-w-[250px]"
             >
               <Image
@@ -113,13 +120,18 @@ export default function Trust() {
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-bg to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-bg to-transparent z-10" />
 
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...mediaLogos, ...mediaLogos].map((name, i) => (
+          <div className="flex animate-marquee whitespace-nowrap items-center">
+            {[...mediaLogos, ...mediaLogos].map((logo, i) => (
               <div
                 key={i}
-                className="mx-8 flex-shrink-0 text-2xl sm:text-3xl font-bold text-navy/20 hover:text-navy/40 transition-colors select-none"
+                className="mx-10 flex-shrink-0 opacity-40 hover:opacity-70 transition-opacity"
               >
-                {name}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  className="h-8 sm:h-10 w-auto"
+                />
               </div>
             ))}
           </div>
