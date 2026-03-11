@@ -7,11 +7,8 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text */}
           <div className="animate-fade-in-up">
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-              Finanzielle Freiheit
-              <br />
-              genießen –
-              <br />
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.15] mb-6">
+              Finanzielle Freiheit genießen –{" "}
               <span className="text-gold">mit staatlicher Förderung.</span>
             </h1>
             <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
@@ -81,20 +78,15 @@ export default function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
             </div>
-            {/* Floating stat card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-5">
-              <p className="text-3xl font-bold text-navy">30+</p>
-              <p className="text-sm text-navy/60">Jahre Erfahrung</p>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom wave */}
+      {/* Bottom wave - smooth transition to bg color */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-[80px] sm:h-[120px]">
           <path
-            d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"
+            d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z"
             fill="#f0f5f9"
           />
         </svg>
