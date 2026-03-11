@@ -73,7 +73,14 @@
   animation: slideUp 0.4s ease-out forwards;
 }
 
-/* Navy background for CTA sections */
+/* Silk blue background – mimics the original header */
 .hero-silk {
-  background: linear-gradient(135deg, #1a2140 0%, #212a48 30%, #2d3a5c 50%, #212a48 70%, #1a2140 100%);
+  position: relative;
+  background:
+    radial-gradient(ellipse 70% 50% at 65% 40%, rgba(55, 80, 130, 0.5) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 35% 55%, rgba(40, 60, 105, 0.4) 0%, transparent 65%),
+    radial-gradient(ellipse 90% 40% at 50% 30%, rgba(70, 95, 145, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 80% 25%, rgba(60, 85, 135, 0.3) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 70% at 20% 70%, rgba(30, 50, 90, 0.4) 0%, transparent 60%),
+    linear-gradient(145deg, #0f1729 0%, #182040 20%, #1e2d55 40%, #243668 55%, #1e2d55 70%, #182040 85%, #0f1729 100%);
 }
