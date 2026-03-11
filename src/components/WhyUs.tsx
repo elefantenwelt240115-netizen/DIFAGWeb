@@ -75,8 +75,8 @@ export default function WhyUs() {
 
               <div className="flex items-center gap-4">
                 <Image
-                  src="/images/Profile (2).jpg"
-                  alt="Beraterin"
+                  src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_ansprechpartner_name_vorname.png"
+                  alt="Sarah"
                   width={60}
                   height={60}
                   className="h-14 w-14 rounded-full object-cover"

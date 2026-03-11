@@ -22,7 +22,7 @@ const reviews = [
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2026/02/google_g_icon_download.png",
     rating: 4.9,
     count: "6.000+",
-    link: "https://www.google.com/search?q=Deutsche+Investitions-+und+F%C3%B6rderberatung+AG+Rezensionen&rflfq=1&tbm=lcl#lkt=LocalPoiReviews",
+    link: "https://www.google.com/maps/place/Deutsche+Investitions-+und+F%C3%B6rderberatung+AG/@51.2562,6.7898,17z/data=!4m8!3m7!1s0x47b8ca0c3906b4a1:0x2e4e6a3b0d4f8c7a!8m2!3d51.2562!4d6.7898!9m1!1b1!16s",
   },
   {
     platform: "Trustpilot",

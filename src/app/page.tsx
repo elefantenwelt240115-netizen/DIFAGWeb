@@ -13,8 +13,6 @@ import Trust from "@/components/Trust";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ChatWidget from "@/components/ChatWidget";
-import FloatingCta from "@/components/FloatingCta";
-
 export default function Home() {
   return (
     <>
@@ -35,7 +33,6 @@ export default function Home() {
       <Footer />
       <CookieBanner />
       <ChatWidget />
-      <FloatingCta />
     </>
   );
 }

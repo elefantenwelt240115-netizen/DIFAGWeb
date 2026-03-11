@@ -1,8 +1,24 @@
 "use client";
 
-import { Play } from "lucide-react";
+import { useState, useRef } from "react";
+import { Play, Pause } from "lucide-react";
 
 export default function VideoSection() {
+  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setPlaying(true);
+    } else {
+      video.pause();
+      setPlaying(false);
+    }
+  };
+
   return (
     <section className="py-20 lg:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -19,18 +35,34 @@ export default function VideoSection() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video bg-navy">
+          <div
+            className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video bg-navy cursor-pointer group"
+            onClick={togglePlay}
+          >
             <video
-              muted
-              loop
+              ref={videoRef}
               playsInline
-              autoPlay
               preload="metadata"
               className="absolute inset-0 w-full h-full object-cover"
+              onEnded={() => setPlaying(false)}
             >
               <source src="/images/YouTube.webm" type="video/webm" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
+
+            {/* Play/Pause overlay */}
+            <div
+              className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                playing ? "opacity-0 group-hover:opacity-100" : "opacity-100"
+              } bg-navy/40`}
+            >
+              <div className="h-20 w-20 rounded-full bg-gold flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                {playing ? (
+                  <Pause className="h-8 w-8 text-navy fill-navy" />
+                ) : (
+                  <Play className="h-8 w-8 text-navy fill-navy ml-1" />
+                )}
+              </div>
+            </div>
           </div>
 
           {/* Link to full YouTube video */}

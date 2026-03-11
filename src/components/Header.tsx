@@ -131,18 +131,13 @@ export default function Header() {
 
         {/* Right side: Ansprechpartner + Phone + Status */}
         <div className="flex items-center gap-4">
-          <div className="flex -space-x-1 hidden lg:flex">
-            {[1, 2, 3].map((i) => (
-              <Image
-                key={i}
-                src={`/images/Profile (${i}).jpg`}
-                alt=""
-                width={32}
-                height={32}
-                className="h-8 w-8 rounded-full border-2 border-white/30 object-cover"
-              />
-            ))}
-          </div>
+          <Image
+            src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_navigation_ansprechpartner.png"
+            alt="Ihre Ansprechpartner"
+            width={100}
+            height={40}
+            className="hidden lg:block h-10 w-auto"
+          />
           <a
             href="tel:021198070110"
             suppressHydrationWarning

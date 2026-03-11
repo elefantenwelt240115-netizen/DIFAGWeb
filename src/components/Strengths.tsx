@@ -1,32 +1,32 @@
-import { Search, Scale, FileText, TrendingUp, Shield } from "lucide-react";
+import Image from "next/image";
 
 const strengths = [
   {
-    icon: Search,
+    icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_1.svg",
     title: "Fördermittel- & Zuschussprüfung",
     description:
       "Wir analysieren Ihre Situation und prüfen, welche staatlichen Förderungen Ihnen zustehen – transparent, individuell und vollständig.",
   },
   {
-    icon: Scale,
+    icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_2.svg",
     title: "Anspruchsermittlung & rechtliche Ausgestaltung",
     description:
       "Wir klären, ob Sie Anspruch haben und wie dieser rechtlich abgesichert werden kann.",
   },
   {
-    icon: FileText,
+    icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_3.svg",
     title: "Antragstellung & Behördenkorrespondenz",
     description:
       "Wir übernehmen den gesamten Prozess – vom Ausfüllen der Anträge bis zur Kommunikation mit den zuständigen Stellen.",
   },
   {
-    icon: TrendingUp,
+    icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_4.svg",
     title: "Finanz- & Vermögensplanung",
     description:
       "Zusätzlich entwickeln wir langfristige Strategien, sodass Sie mit staatlicher Unterstützung Vermögen aufbauen können.",
   },
   {
-    icon: Shield,
+    icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_5.svg",
     title: "Risikomanagement",
     description:
       "Wir entwickeln individuelle Lösungen, die Ihre finanzielle Zukunft absichern und Ihnen Stabilität geben.",
@@ -46,28 +46,41 @@ export default function Strengths() {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {strengths.map((s, i) => (
-            <div
-              key={i}
-              className={`relative bg-bg rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
-                i >= 3 ? "lg:col-span-1 sm:col-span-1" : ""
-              }`}
-            >
-              {/* Step number */}
-              <span className="absolute top-4 right-4 text-5xl font-bold text-navy/5">
-                {i + 1}
-              </span>
-
-              <div className="h-14 w-14 rounded-xl bg-gold/10 flex items-center justify-center mb-5">
-                <s.icon className="h-7 w-7 text-gold" />
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-14">
+          {strengths.slice(0, 4).map((s, i) => (
+            <div key={i} className="flex gap-6 items-start">
+              <div className="flex-shrink-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.icon}
+                  alt=""
+                  className="h-20 w-20"
+                />
               </div>
-              <h3 className="text-lg font-bold text-navy mb-3">{s.title}</h3>
-              <p className="text-navy/60 text-sm leading-relaxed">
-                {s.description}
-              </p>
+              <div>
+                <h3 className="text-xl font-bold text-navy mb-2">{s.title}</h3>
+                <p className="text-navy/60 leading-relaxed">{s.description}</p>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Last item centered full width */}
+        <div className="mt-14 max-w-xl mx-auto">
+          <div className="flex gap-6 items-start">
+            <div className="flex-shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={strengths[4].icon}
+                alt=""
+                className="h-20 w-20"
+              />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-navy mb-2">{strengths[4].title}</h3>
+              <p className="text-navy/60 leading-relaxed">{strengths[4].description}</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
