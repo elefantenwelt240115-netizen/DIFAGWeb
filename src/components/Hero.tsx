@@ -7,8 +7,9 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text */}
           <div className="animate-fade-in-up">
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.15] mb-6">
-              Finanzielle Freiheit genießen –{" "}
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.2] mb-6">
+              Finanzielle Freiheit genießen
+              <br />
               <span className="text-gold">mit staatlicher Förderung.</span>
             </h1>
             <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
