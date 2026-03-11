@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const strengths = [
   {
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_1.svg",
@@ -46,40 +44,61 @@ export default function Strengths() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-14">
-          {strengths.slice(0, 4).map((s, i) => (
-            <div key={i} className="flex gap-6 items-start">
-              <div className="flex-shrink-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={s.icon}
-                  alt=""
-                  className="h-20 w-20"
-                />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-navy mb-2">{s.title}</h3>
-                <p className="text-navy/60 leading-relaxed">{s.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Zigzag steps */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Vertical connector line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 hidden md:block" />
 
-        {/* Last item centered full width */}
-        <div className="mt-14 max-w-xl mx-auto">
-          <div className="flex gap-6 items-start">
-            <div className="flex-shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={strengths[4].icon}
-                alt=""
-                className="h-20 w-20"
-              />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-navy mb-2">{strengths[4].title}</h3>
-              <p className="text-navy/60 leading-relaxed">{strengths[4].description}</p>
-            </div>
+          <div className="space-y-12 md:space-y-0">
+            {strengths.map((s, i) => {
+              const isLeft = i % 2 === 0;
+              return (
+                <div key={i} className="relative md:flex md:items-center md:min-h-[160px]">
+                  {/* Step dot on center line */}
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:flex h-10 w-10 rounded-full bg-gold text-navy font-bold text-sm items-center justify-center shadow-md">
+                    {i + 1}
+                  </div>
+
+                  {/* Left side */}
+                  <div className={`md:w-1/2 ${isLeft ? "md:pr-16" : "md:order-2 md:pl-16"}`}>
+                    {(isLeft || typeof window === "undefined") && (
+                      <div className={`flex gap-5 items-start bg-bg rounded-2xl p-6 border border-gray-100 ${isLeft ? "" : "md:hidden"}`}>
+                        {/* Mobile step number */}
+                        <div className="flex-shrink-0 md:hidden h-8 w-8 rounded-full bg-gold text-navy font-bold text-xs flex items-center justify-center">
+                          {i + 1}
+                        </div>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={s.icon} alt="" className="h-16 w-16 flex-shrink-0 hidden md:block" />
+                        <div>
+                          <h3 className="text-lg font-bold text-navy mb-1">{s.title}</h3>
+                          <p className="text-navy/60 text-sm leading-relaxed">{s.description}</p>
+                        </div>
+                      </div>
+                    )}
+                    {!isLeft && (
+                      <div className="hidden md:block" />
+                    )}
+                  </div>
+
+                  {/* Right side */}
+                  <div className={`md:w-1/2 ${isLeft ? "md:order-2 md:pl-16" : "md:pr-16"}`}>
+                    {!isLeft && (
+                      <div className="flex gap-5 items-start bg-bg rounded-2xl p-6 border border-gray-100">
+                        <div className="flex-shrink-0 md:hidden h-8 w-8 rounded-full bg-gold text-navy font-bold text-xs flex items-center justify-center">
+                          {i + 1}
+                        </div>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={s.icon} alt="" className="h-16 w-16 flex-shrink-0 hidden md:block" />
+                        <div>
+                          <h3 className="text-lg font-bold text-navy mb-1">{s.title}</h3>
+                          <p className="text-navy/60 text-sm leading-relaxed">{s.description}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

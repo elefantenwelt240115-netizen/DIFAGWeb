@@ -19,6 +19,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Trust />
         <TargetGroups />
         <Benefits />
         <Stats />
@@ -28,7 +29,6 @@ export default function Home() {
         <CtaBanner />
         <ContactForm />
         <VideoSection />
-        <Trust />
       </main>
       <Footer />
       <CookieBanner />
