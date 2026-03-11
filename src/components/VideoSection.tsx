@@ -1,11 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { Play } from "lucide-react";
 
 export default function VideoSection() {
-  const [showYouTube, setShowYouTube] = useState(false);
-
   return (
     <section className="py-20 lg:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -23,46 +20,32 @@ export default function VideoSection() {
 
         <div className="max-w-4xl mx-auto">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video bg-navy">
-            {showYouTube ? (
-              <iframe
-                src="https://www.youtube.com/embed/2MnVsF-XVsc?autoplay=1&start=323"
-                title="Deutsche Investitions- und Förderberatung AG"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
-            ) : (
-              <>
-                <video
-                  muted
-                  loop
-                  playsInline
-                  preload="none"
-                  poster=""
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onMouseEnter={(e) => e.currentTarget.play()}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.pause();
-                    e.currentTarget.currentTime = 0;
-                  }}
-                >
-                  <source src="/images/YouTube.webm" type="video/webm" />
-                </video>
-                <div className="absolute inset-0 bg-navy/40 flex items-center justify-center">
-                  <button
-                    onClick={() => setShowYouTube(true)}
-                    className="group flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-full px-8 py-4 hover:bg-white/20 transition-all duration-300"
-                  >
-                    <div className="h-16 w-16 rounded-full bg-gold flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="h-7 w-7 text-navy fill-navy ml-1" />
-                    </div>
-                    <span className="text-white font-semibold text-lg">
-                      Video ansehen
-                    </span>
-                  </button>
-                </div>
-              </>
-            )}
+            <video
+              muted
+              loop
+              playsInline
+              autoPlay
+              preload="metadata"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/images/YouTube.webm" type="video/webm" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
+          </div>
+
+          {/* Link to full YouTube video */}
+          <div className="text-center mt-6">
+            <a
+              href="https://www.youtube.com/watch?v=2MnVsF-XVsc&t=323s"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-gold font-semibold hover:text-gold-light transition-colors group"
+            >
+              <Play className="h-5 w-5 fill-current" />
+              <span className="underline underline-offset-4 decoration-gold/40 group-hover:decoration-gold">
+                Vollständiges Video auf YouTube ansehen
+              </span>
+            </a>
           </div>
         </div>
       </div>

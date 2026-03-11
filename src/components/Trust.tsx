@@ -34,14 +34,14 @@ const reviews = [
 ];
 
 const mediaLogos = [
-  { name: "WAZ", src: "/images/logos/waz.svg", href: "https://www.waz.de/advertorials/foerderung-fuer-familien.html" },
-  { name: "finanzen.net", src: "/images/logos/finanzen-net.svg", href: null },
-  { name: "ntv", src: "/images/logos/ntv.svg", href: "https://unternehmen.n-tv.de/staatliche-foerderungen.html" },
-  { name: "WELT", src: "/images/logos/welt.svg", href: "https://unternehmen.welt.de/finanzen-immobilien/staatliche-foerderungen.html" },
-  { name: "FOCUS online", src: "/images/logos/focus-online.svg", href: "https://unternehmen.focus.de/foerderung-fuer-kinder.html" },
-  { name: "Handelsblatt", src: "/images/logos/handelsblatt.svg", href: "https://www.handelsblatt.com/adv/firmen/foerderberatung.html" },
-  { name: "Finanzen100", src: "/images/logos/finanzen100.svg", href: "https://unternehmen.finanzen100.de/foerderung-fuer-immobilien.html" },
-  { name: "WirtschaftsWoche", src: "/images/logos/wirtschaftswoche.svg", href: null },
+  { name: "WAZ", src: "/images/waz.png", href: "https://www.waz.de/advertorials/foerderung-fuer-familien.html" },
+  { name: "finanzen.net", src: "/images/finanzennet.png", href: null },
+  { name: "ntv", src: "/images/ntv.png", href: "https://unternehmen.n-tv.de/staatliche-foerderungen.html" },
+  { name: "WELT", src: "/images/welt.png", href: "https://unternehmen.welt.de/finanzen-immobilien/staatliche-foerderungen.html" },
+  { name: "FOCUS online", src: "/images/focusonline.jpg", href: "https://unternehmen.focus.de/foerderung-fuer-kinder.html" },
+  { name: "Handelsblatt", src: "/images/handelsblatt.png", href: "https://www.handelsblatt.com/adv/firmen/foerderberatung.html" },
+  { name: "Finanzen100", src: "/images/finanzen100.png", href: "https://unternehmen.finanzen100.de/foerderung-fuer-immobilien.html" },
+  { name: "WirtschaftsWoche", src: "/images/wirtschaftswoche.png", href: null },
 ];
 
 export default function Trust() {
