@@ -35,7 +35,7 @@ const reviews = [
 
 export default function Trust() {
   return (
-    <section id="vertrauen" className="py-20 lg:py-28">
+    <section id="vertrauen" className="pt-10 pb-20 lg:pt-14 lg:pb-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">
