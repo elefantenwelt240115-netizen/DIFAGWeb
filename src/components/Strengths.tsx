@@ -1,35 +1,41 @@
 import Image from "next/image";
+import { Search, Scale, FileText, TrendingUp, ShieldCheck, type LucideIcon } from "lucide-react";
 
-const strengths = [
+const strengths: { icon: string; title: string; description: string; stepIcon: LucideIcon }[] = [
   {
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_1.svg",
     title: "Fördermittel- & Zuschussprüfung",
     description:
       "Wir analysieren Ihre Situation und prüfen, welche staatlichen Förderungen Ihnen zustehen – transparent, individuell und vollständig.",
+    stepIcon: Search,
   },
   {
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_2.svg",
     title: "Anspruchsermittlung & rechtliche Ausgestaltung",
     description:
       "Wir klären, ob Sie Anspruch haben und wie dieser rechtlich abgesichert werden kann.",
+    stepIcon: Scale,
   },
   {
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_3.svg",
     title: "Antragstellung & Behördenkorrespondenz",
     description:
       "Wir übernehmen den gesamten Prozess – vom Ausfüllen der Anträge bis zur Kommunikation mit den zuständigen Stellen.",
+    stepIcon: FileText,
   },
   {
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_4.svg",
     title: "Finanz- & Vermögensplanung",
     description:
       "Zusätzlich entwickeln wir langfristige Strategien, sodass Sie mit staatlicher Unterstützung Vermögen aufbauen können.",
+    stepIcon: TrendingUp,
   },
   {
     icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_5.svg",
     title: "Risikomanagement",
     description:
       "Wir entwickeln individuelle Lösungen, die Ihre finanzielle Zukunft absichern und Ihnen Stabilität geben.",
+    stepIcon: ShieldCheck,
   },
 ];
 
@@ -53,8 +59,8 @@ export default function Strengths() {
               <div className="flex items-start gap-4">
                 <div className="relative flex-shrink-0">
                   <Image src={s.icon} alt={s.title} width={48} height={48} className="h-12 w-12" />
-                  <span className="absolute -top-2 -right-2 h-6 w-6 rounded-full bg-gold text-navy text-xs font-bold flex items-center justify-center">
-                    {i + 1}
+                  <span className="absolute -top-2 -right-2 h-6 w-6 rounded-full bg-gold text-navy flex items-center justify-center">
+                    <s.stepIcon className="h-3.5 w-3.5" />
                   </span>
                 </div>
                 <div>
@@ -75,9 +81,9 @@ export default function Strengths() {
             const isLeft = i % 2 === 0;
             return (
               <div key={i} className="relative mb-12 last:mb-0">
-                {/* Numbered circle on the line */}
-                <div className="absolute left-1/2 -translate-x-1/2 z-10 h-12 w-12 rounded-full bg-gold text-navy font-bold text-lg flex items-center justify-center shadow-lg border-4 border-bg">
-                  {i + 1}
+                {/* Icon circle on the line */}
+                <div className="absolute left-1/2 -translate-x-1/2 z-10 h-12 w-12 rounded-full bg-gold text-navy flex items-center justify-center shadow-lg border-4 border-bg">
+                  <s.stepIcon className="h-5 w-5" />
                 </div>
 
                 {/* Card */}
