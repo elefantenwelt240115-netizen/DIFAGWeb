@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 
 export default function ChatWidget() {
+  const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -13,10 +14,25 @@ export default function ChatWidget() {
     availability: "",
   });
 
+  useEffect(() => {
+    // Show only after cookie banner is dismissed
+    const check = () => {
+      if (localStorage.getItem("cookie-consent")) {
+        setVisible(true);
+      }
+    };
+    check();
+    // Poll briefly in case user just dismissed cookie banner
+    const interval = setInterval(check, 500);
+    return () => clearInterval(interval);
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
   };
+
+  if (!visible) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
