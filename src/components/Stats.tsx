@@ -7,17 +7,19 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-16 hero-silk">
+    <section className="py-10 lg:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((s, i) => (
-            <div key={i} className="text-center">
-              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gold mb-2">
-                {s.value}
-              </p>
-              <p className="text-white/70 text-sm sm:text-base">{s.label}</p>
-            </div>
-          ))}
+        <div className="hero-silk rounded-3xl py-14 px-8 lg:py-16 lg:px-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((s, i) => (
+              <div key={i} className="text-center">
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gold mb-2">
+                  {s.value}
+                </p>
+                <p className="text-white/70 text-sm sm:text-base">{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

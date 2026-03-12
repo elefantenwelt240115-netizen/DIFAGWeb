@@ -35,7 +35,7 @@ const strengths = [
 
 export default function Strengths() {
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">
@@ -49,7 +49,7 @@ export default function Strengths() {
         {/* Mobile: Simple stacked cards */}
         <div className="md:hidden space-y-4">
           {strengths.map((s, i) => (
-            <div key={i} className="bg-bg rounded-2xl p-5 border border-gray-100 shadow-sm">
+            <div key={i} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
               <div className="flex items-start gap-4">
                 <div className="relative flex-shrink-0">
                   <Image src={s.icon} alt={s.title} width={48} height={48} className="h-12 w-12" />
@@ -76,7 +76,7 @@ export default function Strengths() {
             return (
               <div key={i} className="relative mb-12 last:mb-0">
                 {/* Numbered circle on the line */}
-                <div className="absolute left-1/2 -translate-x-1/2 z-10 h-12 w-12 rounded-full bg-gold text-navy font-bold text-lg flex items-center justify-center shadow-lg border-4 border-white">
+                <div className="absolute left-1/2 -translate-x-1/2 z-10 h-12 w-12 rounded-full bg-gold text-navy font-bold text-lg flex items-center justify-center shadow-lg border-4 border-bg">
                   {i + 1}
                 </div>
 
@@ -86,7 +86,7 @@ export default function Strengths() {
                     isLeft ? "mr-auto pr-0" : "ml-auto pl-0"
                   }`}
                 >
-                  <div className="bg-bg rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                     <div className="flex items-start gap-4">
                       <Image src={s.icon} alt={s.title} width={56} height={56} className="h-14 w-14 flex-shrink-0" />
                       <div>

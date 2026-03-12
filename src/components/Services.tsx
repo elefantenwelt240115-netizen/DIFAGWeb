@@ -14,7 +14,7 @@ const services = [
   {
     title: "Investitionsförderung",
     description: "Staatliche Zulagen und Steuervorteile für Ihre Investments – rechtssicher und optimiert.",
-    features: ["Steuersenkung & Zulagen", "Vermögenswirksame Leistungen", "Steuersenkung auf Kapitalerträge"],
+    features: ["Steuersenkung & Zulagen", "Vermögenswirksame Leistungen", "Steuervorteile auf Kapitalerträge"],
   },
 ];
 
@@ -38,7 +38,7 @@ export default function Services() {
           {services.map((s, i) => (
             <div
               key={i}
-              className="group relative bg-bg rounded-2xl p-8 hover:bg-navy transition-all duration-500 cursor-pointer border border-gray-100 hover:border-navy"
+              className="group relative bg-white rounded-2xl p-8 hover:bg-navy transition-all duration-500 cursor-pointer border border-gray-100 hover:border-navy"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold to-gold-light rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <h3 className="text-xl font-bold text-navy group-hover:text-white mb-3 transition-colors">

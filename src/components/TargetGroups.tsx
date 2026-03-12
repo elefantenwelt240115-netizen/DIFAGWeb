@@ -29,7 +29,7 @@ const groups = [
 
 export default function TargetGroups() {
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">
@@ -45,7 +45,7 @@ export default function TargetGroups() {
             <a
               key={i}
               href="#kontakt"
-              className="group bg-bg rounded-2xl p-7 hover:bg-navy border border-gray-100 hover:border-navy transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+              className="group bg-white rounded-2xl p-7 hover:bg-navy border border-gray-100 hover:border-navy transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="h-14 w-14 rounded-xl bg-gold/10 group-hover:bg-gold/20 flex items-center justify-center mb-5 transition-colors">
                 <g.icon className="h-7 w-7 text-gold" />

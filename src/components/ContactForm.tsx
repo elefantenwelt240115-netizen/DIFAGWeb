@@ -20,7 +20,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="kontakt" className="py-20 lg:py-28 bg-white">
+    <section id="kontakt" className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left: Form */}
@@ -60,7 +60,7 @@ export default function ContactForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-bg focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-all text-navy"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-all text-navy"
                     placeholder="Ihr vollständiger Name"
                   />
                 </div>
@@ -75,7 +75,7 @@ export default function ContactForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-bg focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-all text-navy"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-all text-navy"
                     placeholder="ihre@email.de"
                   />
                 </div>
@@ -90,7 +90,7 @@ export default function ContactForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-bg focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-all text-navy"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-all text-navy"
                     placeholder="+49 ..."
                   />
                 </div>
@@ -104,7 +104,7 @@ export default function ContactForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, availability: e.target.value })
                     }
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-bg focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-all text-navy"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-all text-navy"
                   >
                     <option value="">Bitte wählen</option>
                     <option value="vormittags">Vormittags (8:45 - 12:00)</option>
@@ -145,7 +145,7 @@ export default function ContactForm() {
 
           {/* Right: Info + Image */}
           <div className="flex flex-col justify-center">
-            <div className="bg-bg rounded-2xl p-8 mb-8">
+            <div className="bg-white rounded-2xl p-8 mb-8 border border-gray-100">
               <h3 className="text-xl font-bold text-navy mb-6">
                 Wir haben Top-Expertise im Förderungsdschungel
               </h3>
