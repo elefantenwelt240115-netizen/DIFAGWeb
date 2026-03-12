@@ -14,7 +14,7 @@ const services = [
   {
     title: "Investitionsförderung",
     description: "Staatliche Zulagen und Steuervorteile für Ihre Investments – rechtssicher und optimiert.",
-    features: ["Steuersenkung & Zulagen", "Vermögenswirksame Leistungen", "Steuervorteile auf Kapitalerträge"],
+    features: ["Steuersenkung & Zulagen", "Vermögenswirksame Leistungen", "Steuersenkung auf Kapitalerträge"],
   },
 ];
 
