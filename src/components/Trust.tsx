@@ -35,7 +35,7 @@ const reviews = [
 
 export default function Trust() {
   return (
-    <section id="vertrauen" className="pt-6 pb-10 lg:pt-8 lg:pb-14">
+    <section id="vertrauen" className="pt-6 pb-24 lg:pt-8 lg:pb-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">
