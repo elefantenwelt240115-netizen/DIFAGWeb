@@ -44,10 +44,6 @@
   animation: marquee 30s linear infinite;
 }
 
-.marquee-wrapper:hover .animate-marquee {
-  animation-play-state: paused;
-}
-
 /* Fade in animation */
 @keyframes fadeInUp {
   from {
