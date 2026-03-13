@@ -36,18 +36,13 @@ export default function CtaBanner() {
                   Unsere Förderexpert:innen beraten Sie gerne
                 </h3>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="flex -space-x-2">
-                    {["berater.jpg", "berater2.jpg"].map((img, i) => (
-                      <Image
-                        key={i}
-                        src={`/images/${img}`}
-                        alt="Förderexpert:in der DIFAG"
-                        width={48}
-                        height={48}
-                        className="h-12 w-12 rounded-full border-2 border-white/30 object-cover"
-                      />
-                    ))}
-                  </div>
+                  <Image
+                    src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_navigation_ansprechpartner.png"
+                    alt="Ihre persönlichen Ansprechpartner bei der DIFAG"
+                    width={100}
+                    height={40}
+                    className="h-10 w-auto"
+                  />
                   <p className="text-white/70 text-sm">Ihr persönliches Beraterteam</p>
                 </div>
                 <div className="space-y-3">
