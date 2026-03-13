@@ -1,35 +1,35 @@
-import { Search, Scale, FileText, TrendingUp, ShieldCheck, type LucideIcon } from "lucide-react";
+import { Search, Scale, FileText, TrendingUp, ShieldCheck } from "lucide-react";
 
-const strengths: { icon: LucideIcon; title: string; description: string }[] = [
+const steps = [
   {
     icon: Search,
-    title: "Fördermittel- & Zuschussprüfung",
-    description:
-      "Wir analysieren Ihre Situation und prüfen, welche staatlichen Förderungen Ihnen zustehen – transparent, individuell und vollständig.",
+    number: "01",
+    title: "Fördercheck",
+    description: "Wir analysieren Ihre Situation und prüfen alle verfügbaren Förderprogramme.",
   },
   {
     icon: Scale,
-    title: "Anspruchsermittlung & rechtliche Ausgestaltung",
-    description:
-      "Wir klären, ob Sie Anspruch haben und wie dieser rechtlich abgesichert werden kann.",
+    number: "02",
+    title: "Anspruchsprüfung",
+    description: "Wir klären Ihren Anspruch und sichern alles rechtlich ab.",
   },
   {
     icon: FileText,
-    title: "Antragstellung & Behördenkorrespondenz",
-    description:
-      "Wir übernehmen den gesamten Prozess – vom Ausfüllen der Anträge bis zur Kommunikation mit den zuständigen Stellen.",
+    number: "03",
+    title: "Antragstellung",
+    description: "Wir übernehmen den Papierkram – von Anträgen bis Behördenkommunikation.",
   },
   {
     icon: TrendingUp,
-    title: "Finanz- & Vermögensplanung",
-    description:
-      "Zusätzlich entwickeln wir langfristige Strategien, sodass Sie mit staatlicher Unterstützung Vermögen aufbauen können.",
+    number: "04",
+    title: "Vermögensplanung",
+    description: "Wir entwickeln langfristige Strategien für Ihren Vermögensaufbau.",
   },
   {
     icon: ShieldCheck,
-    title: "Risikomanagement",
-    description:
-      "Wir entwickeln individuelle Lösungen, die Ihre finanzielle Zukunft absichern und Ihnen Stabilität geben.",
+    number: "05",
+    title: "Absicherung",
+    description: "Wir schützen Ihre finanzielle Zukunft mit individuellen Lösungen.",
   },
 ];
 
@@ -42,61 +42,53 @@ export default function Strengths() {
             Unser Vorgehen
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-4">
-            Unsere Stärken für Ihre finanzielle Zukunft
+            In 5 Schritten zu Ihrer Förderung
           </h2>
+          <p className="text-navy/60 text-lg max-w-2xl mx-auto">
+            Von der ersten Analyse bis zur Auszahlung – wir begleiten Sie durch den gesamten Prozess.
+          </p>
         </div>
 
-        {/* Mobile: Simple stacked cards */}
-        <div className="md:hidden space-y-4">
-          {strengths.map((s, i) => (
-            <div key={i} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 h-12 w-12 rounded-xl bg-gold/10 flex items-center justify-center">
-                  <s.icon className="h-6 w-6 text-gold" />
+        {/* Desktop: Horizontal stepper */}
+        <div className="hidden lg:block">
+          {/* Progress bar */}
+          <div className="relative mb-12">
+            <div className="absolute top-6 left-[10%] right-[10%] h-0.5 bg-gray-200" />
+            <div className="absolute top-6 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-gold to-gold-light" />
+            <div className="relative flex justify-between px-[5%]">
+              {steps.map((step, i) => (
+                <div key={i} className="flex flex-col items-center text-center w-1/5">
+                  <div className="h-12 w-12 rounded-full bg-gold text-navy flex items-center justify-center font-bold text-sm shadow-lg shadow-gold/20 mb-4 relative z-10">
+                    <step.icon className="h-5 w-5" />
+                  </div>
+                  <span className="text-gold font-bold text-xs tracking-widest mb-2">{step.number}</span>
+                  <h3 className="text-navy font-bold text-base mb-2">{step.title}</h3>
+                  <p className="text-navy/50 text-sm leading-relaxed max-w-[180px]">{step.description}</p>
                 </div>
-                <div>
-                  <h3 className="text-base font-bold text-navy mb-1">{s.title}</h3>
-                  <p className="text-navy/60 text-sm leading-relaxed">{s.description}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile: Vertical numbered steps */}
+        <div className="lg:hidden space-y-6">
+          {steps.map((step, i) => (
+            <div key={i} className="flex gap-5">
+              <div className="flex flex-col items-center">
+                <div className="h-12 w-12 rounded-full bg-gold text-navy flex items-center justify-center font-bold text-sm shadow-lg shadow-gold/20 flex-shrink-0">
+                  <step.icon className="h-5 w-5" />
                 </div>
+                {i < steps.length - 1 && (
+                  <div className="w-0.5 flex-1 bg-gradient-to-b from-gold to-gold/20 mt-2" />
+                )}
+              </div>
+              <div className="pb-6">
+                <span className="text-gold font-bold text-xs tracking-widest">{step.number}</span>
+                <h3 className="text-navy font-bold text-lg mb-1">{step.title}</h3>
+                <p className="text-navy/60 text-sm leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Desktop: Vertical Timeline */}
-        <div className="relative max-w-5xl mx-auto hidden md:block">
-          {/* Vertical line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gold/20 -translate-x-px" />
-
-          {strengths.map((s, i) => {
-            const isLeft = i % 2 === 0;
-            return (
-              <div key={i} className="relative mb-12 last:mb-0">
-                {/* Icon circle on the line */}
-                <div className="absolute left-1/2 -translate-x-1/2 z-10 h-12 w-12 rounded-full bg-gold text-navy flex items-center justify-center shadow-lg border-4 border-bg">
-                  <s.icon className="h-5 w-5" />
-                </div>
-
-                {/* Card */}
-                <div
-                  className={`w-[calc(50%-3rem)] ${
-                    isLeft ? "mr-auto pr-0" : "ml-auto pl-0"
-                  }`}
-                >
-                  <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 className="text-lg font-bold text-navy mb-2">{s.title}</h3>
-                    <p className="text-navy/60 text-sm leading-relaxed">{s.description}</p>
-                  </div>
-                </div>
-
-                {/* Connector line from circle to card */}
-                <div
-                  className="absolute top-5 h-px bg-gold/20 w-8"
-                  style={isLeft ? { left: "calc(50% - 3.5rem)" } : { left: "calc(50% + 1.5rem)" }}
-                />
-              </div>
-            );
-          })}
         </div>
       </div>
     </section>

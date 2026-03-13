@@ -1,37 +1,62 @@
-import { Users, Home, PiggyBank, Briefcase } from "lucide-react";
+"use client";
 
-const groups = [
+import { useState } from "react";
+import { Users, Home, PiggyBank, Briefcase, ArrowRight, type LucideIcon } from "lucide-react";
+
+const groups: {
+  icon: LucideIcon;
+  title: string;
+  label: string;
+  highlight: string;
+  description: string;
+  examples: string[];
+}[] = [
   {
     icon: Users,
-    title: "Für Familien",
+    label: "Familien",
+    title: "Förderungen für Familien",
+    highlight: "bis zu 12.480€/Jahr",
     description:
-      "Zuschüsse für Kinder, Ausbildung und Alltag – wir prüfen, was Ihnen wirklich zusteht.",
+      "Kindergeld, Elterngeld, Kinderzuschlag, Bildungspakete – viele Familien schöpfen ihre Ansprüche nicht aus. Wir prüfen jede Möglichkeit.",
+    examples: ["Kindergeld-Optimierung", "Elterngeld Plus", "Kinderzuschlag", "Bildungs- & Teilhabepaket"],
   },
   {
     icon: Home,
-    title: "Für Immobilienbesitzer",
+    label: "Immobilien",
+    title: "Förderungen für Immobilien",
+    highlight: "bis zu 150.000€ KfW-Kredit",
     description:
-      "Zuschüsse für Kauf, energetische Sanierung oder Neubau.",
+      "Ob Kauf, Neubau oder Sanierung – staatliche Förderprogramme senken Ihre Kosten erheblich. Wir finden das passende Programm.",
+    examples: ["KfW-Wohneigentumsprogramm", "BAFA-Zuschüsse", "Wohn-Riester", "Energetische Sanierung"],
   },
   {
     icon: PiggyBank,
-    title: "Für Sparer & Anleger",
+    label: "Sparer",
+    title: "Förderungen für Sparer & Anleger",
+    highlight: "bis zu 3.848€/Jahr Zulagen",
     description:
-      "Investieren mit staatlicher Förderung – langfristig, sicher und steueroptimiert.",
+      "Vermögenswirksame Leistungen, Arbeitnehmersparzulage, Riester – der Staat belohnt Sparen. Wir maximieren Ihre Zulagen.",
+    examples: ["Vermögenswirksame Leistungen", "Arbeitnehmersparzulage", "Riester-Zulagen", "Steuervergünstigungen"],
   },
   {
     icon: Briefcase,
-    title: "Für Unternehmer & Selbstständige",
+    label: "Unternehmer",
+    title: "Förderungen für Unternehmer",
+    highlight: "bis zu 500.000€ Förderkredite",
     description:
-      "Gezieltes Wachstum mit Zuschüssen und Förderkrediten.",
+      "Gründungszuschuss, Investitionszulagen, Förderkredite – gezielte Unterstützung für Wachstum und Innovation.",
+    examples: ["Gründungszuschuss", "ERP-Förderkredite", "Investitionszulagen", "Innovationsförderung"],
   },
 ];
 
 export default function TargetGroups() {
+  const [active, setActive] = useState(0);
+  const g = groups[active];
+
   return (
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <p className="text-gold font-semibold text-sm tracking-widest uppercase mb-3">
             Passgenau für Sie
           </p>
@@ -40,24 +65,65 @@ export default function TargetGroups() {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {groups.map((g, i) => (
-            <a
+        {/* Tab Buttons */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {groups.map((group, i) => (
+            <button
               key={i}
-              href="#kontakt"
-              className="group bg-white rounded-2xl p-7 hover:bg-navy border border-gray-100 hover:border-navy transition-[background-color,border-color,color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-xl"
+              onClick={() => setActive(i)}
+              className={`flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
+                active === i
+                  ? "bg-navy text-white shadow-lg shadow-navy/20"
+                  : "bg-white text-navy/70 border border-gray-200 hover:border-gold hover:text-navy"
+              }`}
             >
-              <div className="h-14 w-14 rounded-xl bg-gold/10 group-hover:bg-gold/20 flex items-center justify-center mb-5 transition-colors">
-                <g.icon className="h-7 w-7 text-gold" />
-              </div>
-              <h3 className="text-lg font-bold text-navy group-hover:text-white mb-2 transition-colors">
-                {g.title}
-              </h3>
-              <p className="text-navy/60 group-hover:text-white/70 text-sm leading-relaxed transition-colors">
-                {g.description}
-              </p>
-            </a>
+              <group.icon className={`h-4 w-4 ${active === i ? "text-gold" : ""}`} />
+              {group.label}
+            </button>
           ))}
+        </div>
+
+        {/* Active Content */}
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          {/* Left: Info */}
+          <div>
+            <h3 className="text-2xl lg:text-3xl font-bold text-navy mb-3">
+              {g.title}
+            </h3>
+            <p className="text-4xl lg:text-5xl font-bold text-gold mb-6">
+              {g.highlight}
+            </p>
+            <p className="text-navy/60 text-lg leading-relaxed mb-8">
+              {g.description}
+            </p>
+            <a
+              href="#kontakt"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-navy font-bold rounded-full hover:bg-gold-light transition-colors shadow-lg shadow-gold/20"
+            >
+              Kostenlos prüfen lassen
+              <ArrowRight className="h-5 w-5" />
+            </a>
+          </div>
+
+          {/* Right: Examples */}
+          <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
+            <p className="text-sm font-semibold text-navy/40 uppercase tracking-widest mb-6">
+              Fördermöglichkeiten
+            </p>
+            <div className="space-y-4">
+              {g.examples.map((ex, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-4 p-4 rounded-xl bg-bg hover:bg-gold/5 transition-colors"
+                >
+                  <div className="h-10 w-10 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-gold font-bold text-sm">{i + 1}</span>
+                  </div>
+                  <span className="text-navy font-medium">{ex}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
