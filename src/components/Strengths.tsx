@@ -1,41 +1,35 @@
-import Image from "next/image";
 import { Search, Scale, FileText, TrendingUp, ShieldCheck, type LucideIcon } from "lucide-react";
 
-const strengths: { icon: string; title: string; description: string; stepIcon: LucideIcon }[] = [
+const strengths: { icon: LucideIcon; title: string; description: string }[] = [
   {
-    icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_1.svg",
+    icon: Search,
     title: "Fördermittel- & Zuschussprüfung",
     description:
       "Wir analysieren Ihre Situation und prüfen, welche staatlichen Förderungen Ihnen zustehen – transparent, individuell und vollständig.",
-    stepIcon: Search,
   },
   {
-    icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_2.svg",
+    icon: Scale,
     title: "Anspruchsermittlung & rechtliche Ausgestaltung",
     description:
       "Wir klären, ob Sie Anspruch haben und wie dieser rechtlich abgesichert werden kann.",
-    stepIcon: Scale,
   },
   {
-    icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_3.svg",
+    icon: FileText,
     title: "Antragstellung & Behördenkorrespondenz",
     description:
       "Wir übernehmen den gesamten Prozess – vom Ausfüllen der Anträge bis zur Kommunikation mit den zuständigen Stellen.",
-    stepIcon: FileText,
   },
   {
-    icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_4.svg",
+    icon: TrendingUp,
     title: "Finanz- & Vermögensplanung",
     description:
       "Zusätzlich entwickeln wir langfristige Strategien, sodass Sie mit staatlicher Unterstützung Vermögen aufbauen können.",
-    stepIcon: TrendingUp,
   },
   {
-    icon: "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_icons_5.svg",
+    icon: ShieldCheck,
     title: "Risikomanagement",
     description:
       "Wir entwickeln individuelle Lösungen, die Ihre finanzielle Zukunft absichern und Ihnen Stabilität geben.",
-    stepIcon: ShieldCheck,
   },
 ];
 
@@ -57,11 +51,8 @@ export default function Strengths() {
           {strengths.map((s, i) => (
             <div key={i} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="relative flex-shrink-0">
-                  <Image src={s.icon} alt={s.title} width={48} height={48} className="h-12 w-12" />
-                  <span className="absolute -top-2 -right-2 h-6 w-6 rounded-full bg-gold text-navy flex items-center justify-center">
-                    <s.stepIcon className="h-3.5 w-3.5" />
-                  </span>
+                <div className="flex-shrink-0 h-12 w-12 rounded-xl bg-gold/10 flex items-center justify-center">
+                  <s.icon className="h-6 w-6 text-gold" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-navy mb-1">{s.title}</h3>
@@ -83,7 +74,7 @@ export default function Strengths() {
               <div key={i} className="relative mb-12 last:mb-0">
                 {/* Icon circle on the line */}
                 <div className="absolute left-1/2 -translate-x-1/2 z-10 h-12 w-12 rounded-full bg-gold text-navy flex items-center justify-center shadow-lg border-4 border-bg">
-                  <s.stepIcon className="h-5 w-5" />
+                  <s.icon className="h-5 w-5" />
                 </div>
 
                 {/* Card */}
@@ -93,13 +84,8 @@ export default function Strengths() {
                   }`}
                 >
                   <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="flex items-start gap-4">
-                      <Image src={s.icon} alt={s.title} width={56} height={56} className="h-14 w-14 flex-shrink-0" />
-                      <div>
-                        <h3 className="text-lg font-bold text-navy mb-1">{s.title}</h3>
-                        <p className="text-navy/60 text-sm leading-relaxed">{s.description}</p>
-                      </div>
-                    </div>
+                    <h3 className="text-lg font-bold text-navy mb-2">{s.title}</h3>
+                    <p className="text-navy/60 text-sm leading-relaxed">{s.description}</p>
                   </div>
                 </div>
 

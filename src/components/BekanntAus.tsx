@@ -23,12 +23,12 @@ function LogoSet() {
             href={logo.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mx-8 sm:mx-10 shrink-0 opacity-40 hover:opacity-80 transition-opacity"
+            className="mx-8 sm:mx-10 shrink-0 opacity-40 pointer-events-none"
           >
             {inner}
           </a>
         ) : (
-          <div key={i} className="mx-8 sm:mx-10 shrink-0 opacity-40 hover:opacity-80 transition-opacity">
+          <div key={i} className="mx-8 sm:mx-10 shrink-0 opacity-40 pointer-events-none">
             {inner}
           </div>
         );
