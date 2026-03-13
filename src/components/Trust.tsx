@@ -51,7 +51,7 @@ export default function Trust() {
             href="https://verbraucherschutz.de/deutsche-investitions-und-foerderberatung/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 sm:gap-4"
+            className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-[transform,box-shadow] duration-300 hover:-translate-y-1 flex items-center gap-3 sm:gap-4"
           >
             <Image
               src="https://deutsche-foerderberatung.de/wp-content/uploads/2026/02/deutsche_investitionsberatung_website_siegel_verbraucherschutz.jpg"
@@ -72,7 +72,7 @@ export default function Trust() {
               href={r.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 sm:gap-4 sm:min-w-[250px]"
+              className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-[transform,box-shadow] duration-300 hover:-translate-y-1 flex items-center gap-3 sm:gap-4 sm:min-w-[250px]"
             >
               <Image
                 src={r.icon}

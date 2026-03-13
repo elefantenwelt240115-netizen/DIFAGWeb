@@ -126,7 +126,7 @@ export default function ChatWidget() {
                 </p>
                 <button
                   type="submit"
-                  className="w-full py-3 bg-gold text-navy font-bold rounded-full text-sm hover:bg-gold-light transition-all duration-300 flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-gold text-navy font-bold rounded-full text-sm hover:bg-gold-light transition-colors duration-300 flex items-center justify-center gap-2"
                 >
                   <Send className="h-4 w-4" />
                   Nachricht senden
@@ -140,7 +140,7 @@ export default function ChatWidget() {
       {/* Floating Button */}
       <button
         onClick={() => setOpen(!open)}
-        className={`h-14 w-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-105 ${
+        className={`h-14 w-14 rounded-full shadow-lg flex items-center justify-center transition-transform duration-300 hover:scale-105 ${
           open
             ? "bg-navy text-white"
             : "bg-gold text-navy hover:shadow-xl hover:shadow-gold/30"

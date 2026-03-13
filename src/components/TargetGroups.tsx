@@ -45,7 +45,7 @@ export default function TargetGroups() {
             <a
               key={i}
               href="#kontakt"
-              className="group bg-white rounded-2xl p-7 hover:bg-navy border border-gray-100 hover:border-navy transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+              className="group bg-white rounded-2xl p-7 hover:bg-navy border border-gray-100 hover:border-navy transition-[background-color,border-color,color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="h-14 w-14 rounded-xl bg-gold/10 group-hover:bg-gold/20 flex items-center justify-center mb-5 transition-colors">
                 <g.icon className="h-7 w-7 text-gold" />

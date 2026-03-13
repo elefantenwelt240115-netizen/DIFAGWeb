@@ -70,7 +70,7 @@ export default function Hero() {
 
             <a
               href="#kontakt"
-              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gold text-navy font-bold rounded-full text-base sm:text-lg hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gold text-navy font-bold rounded-full text-base sm:text-lg hover:bg-gold-light transition-[background-color,box-shadow,transform] duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
             >
               Unverbindliches Gespräch vereinbaren
             </a>

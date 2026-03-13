@@ -43,7 +43,7 @@ export default function Benefits() {
           {benefits.map((b, i) => (
             <div
               key={i}
-              className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+              className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-[transform,box-shadow] duration-300 hover:-translate-y-1 border border-gray-100"
             >
               <div className="h-14 w-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors">
                 <b.icon className="h-7 w-7 text-gold" />
