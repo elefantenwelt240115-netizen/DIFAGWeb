@@ -79,7 +79,7 @@ export default function Trust() {
                 alt={r.platform}
                 width={48}
                 height={48}
-                className="h-12 w-12 rounded-full object-contain bg-gray-50 p-1"
+                className="h-10 w-auto object-contain"
               />
               <div>
                 <p className="font-bold text-navy text-sm mb-1">{r.platform}</p>
