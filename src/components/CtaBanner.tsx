@@ -37,10 +37,10 @@ export default function CtaBanner() {
                 </h3>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="flex -space-x-2">
-                    {[1, 3, 4].map((i) => (
+                    {["berater.jpg", "berater2.jpg"].map((img, i) => (
                       <Image
                         key={i}
-                        src={`/images/Profile (${i}).jpg`}
+                        src={`/images/${img}`}
                         alt="Förderexpert:in der DIFAG"
                         width={48}
                         height={48}
