@@ -77,9 +77,9 @@ export default function Trust() {
               <Image
                 src={r.icon}
                 alt={r.platform}
-                width={48}
+                width={120}
                 height={48}
-                className="h-10 w-auto object-contain"
+                className="h-10 w-auto object-contain flex-shrink-0"
               />
               <div>
                 <p className="font-bold text-navy text-sm mb-1">{r.platform}</p>
