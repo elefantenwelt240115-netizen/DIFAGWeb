@@ -38,9 +38,9 @@ export default function Services() {
           {services.map((s, i) => (
             <div
               key={i}
-              className="group relative bg-white rounded-2xl p-8 hover:bg-navy transition-[background-color,border-color,color] duration-500 cursor-pointer border border-gray-100 hover:border-navy"
+              className="group relative isolate overflow-hidden bg-white rounded-2xl p-8 hover:bg-navy transition-[background-color,border-color] duration-500 cursor-pointer border border-gray-100 hover:border-navy"
             >
-              <div className="absolute top-0 left-4 right-4 h-1 bg-gradient-to-r from-gold to-gold-light rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute -top-px -left-px -right-px h-[3px] bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               <h3 className="text-xl font-bold text-navy group-hover:text-white mb-3 transition-colors">
                 {s.title}
               </h3>
