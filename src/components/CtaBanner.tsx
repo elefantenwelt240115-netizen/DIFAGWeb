@@ -35,14 +35,37 @@ export default function CtaBanner() {
                 <h3 className="text-white font-bold text-lg mb-6">
                   Unsere Förderexpert:innen beraten Sie gerne
                 </h3>
-                <div className="flex items-center gap-4 mb-6">
-                  <Image
-                    src="/images/Telefonisten/ansprechpartner.jpg"
-                    alt="Ihre persönlichen Ansprechpartner bei der DIFAG"
-                    width={48}
-                    height={48}
-                    className="h-12 w-12 rounded-full object-cover"
-                  />
+                <div className="mb-6">
+                  <div className="flex -space-x-2 mb-3">
+                    <Image
+                      src="/images/Telefonisten/ansprechpartner.jpg"
+                      alt="Ansprechpartner"
+                      width={40}
+                      height={40}
+                      className="h-10 w-10 rounded-full object-cover border-2 border-white/20"
+                    />
+                    <Image
+                      src="/images/Telefonisten/ansprechpartner2.jpg"
+                      alt="Ansprechpartner"
+                      width={40}
+                      height={40}
+                      className="h-10 w-10 rounded-full object-cover border-2 border-white/20"
+                    />
+                    <Image
+                      src="/images/Telefonisten/sarah.jpg"
+                      alt="Sarah"
+                      width={40}
+                      height={40}
+                      className="h-10 w-10 rounded-full object-cover object-top border-2 border-white/20"
+                    />
+                    <Image
+                      src="/images/Berater/berater.jpg"
+                      alt="Berater"
+                      width={40}
+                      height={40}
+                      className="h-10 w-10 rounded-full object-cover border-2 border-white/20"
+                    />
+                  </div>
                   <p className="text-white/70 text-sm">Ihr persönliches Beraterteam</p>
                 </div>
                 <div className="space-y-3">

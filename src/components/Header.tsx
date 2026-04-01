@@ -140,13 +140,6 @@ export default function Header() {
 
         {/* Right side: Ansprechpartner + Phone + Status */}
         <div className="flex items-center gap-4">
-          <Image
-            src="/images/Telefonisten/ansprechpartner.jpg"
-            alt="Ihre persönlichen Ansprechpartner bei der DIFAG"
-            width={40}
-            height={40}
-            className="hidden lg:block h-10 w-10 rounded-full object-cover"
-          />
           <a
             href="tel:021198070110"
             suppressHydrationWarning
