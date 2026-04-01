@@ -45,7 +45,7 @@ export default function CtaBanner() {
                       className="h-10 w-10 rounded-full object-cover border-2 border-white/20"
                     />
                     <Image
-                      src="/images/Telefonisten/ansprechpartner2.jpg"
+                      src="/images/Berater/berater2.jpg"
                       alt="Ansprechpartner"
                       width={40}
                       height={40}
