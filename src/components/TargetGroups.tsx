@@ -15,7 +15,7 @@ const groups: {
     icon: Users,
     label: "Familien",
     title: "Förderungen für Familien",
-    highlight: "bis zu 12.480€/Jahr",
+    highlight: "bis zu 1.280€/Jahr",
     description:
       "Kindergeld, Elterngeld, Kinderzuschlag, Bildungspakete – viele Familien schöpfen ihre Ansprüche nicht aus. Wir prüfen jede Möglichkeit.",
     examples: ["Kindergeld-Optimierung", "Elterngeld Plus", "Kinderzuschlag", "Bildungs- & Teilhabepaket"],
@@ -42,10 +42,10 @@ const groups: {
     icon: Briefcase,
     label: "Unternehmer",
     title: "Förderungen für Unternehmer",
-    highlight: "bis zu 500.000€ Förderkredite",
+    highlight: "bis zu 61.652€/Jahr sparen",
     description:
-      "Gründungszuschuss, Investitionszulagen, Förderkredite – gezielte Unterstützung für Wachstum und Innovation.",
-    examples: ["Gründungszuschuss", "ERP-Förderkredite", "Investitionszulagen", "Innovationsförderung"],
+      "Steuerförderungen, Firmenstrukturen und strategische Optimierung – wir zeigen Ihnen, wie Sie als Unternehmer maximal profitieren.",
+    examples: ["Steuerförderungen", "Firmenstrukturen", "Holding-Modelle", "Investitionsabzüge"],
   },
 ];
 
