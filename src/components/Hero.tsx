@@ -4,10 +4,22 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const slides = [
-  "/images/hero/explaining-project-points.jpg",
-  "/images/hero/close-up-smiley-people-work.jpg",
-  "/images/hero/medium-shot-family-video-conference.jpg",
-  "/images/hero/portrait-young-blond-smiling-woman-studying-home-remote-education-concept-connects-online.jpg",
+  {
+    src: "/images/hero/explaining-project-points.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAKABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQT/xAAjEAACAAUCBwAAAAAAAAAAAAABAgADBAUREiETIjFBYYGx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAYEQADAQEAAAAAAAAAAAAAAAAAASECEf/aAAwDAQACEQMRAD8AqppE1qmtqZZZm0cNJRblYHbP2ErctUlMyKqKJY0pkddu/uCLa7La5pViCAuCD5h6zktQAk5JJ3MTl9FyH//Z",
+  },
+  {
+    src: "/images/hero/close-up-smiley-people-work.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAKABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAQMEBf/EAB8QAAIBBAIDAAAAAAAAAAAAAAECAwAEERIhMUFCUf/EABQBAQAAAAAAAAAAAAAAAAAAAAT/xAAXEQEBAQEAAAAAAAAAAAAAAAABABES/9oADAMBAAIRAxEAPwAbJao1rJkPyze2oPNRTsstsUiTYIoOx4ZGHRyfBrRs0WV3aRQ7fWGTTLuNGEuyKdtQcjuj4DI6Uv/Z",
+  },
+  {
+    src: "/images/hero/medium-shot-family-video-conference.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAKABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwT/xAAgEAEAAgICAQUAAAAAAAAAAAABAhEAAxMhMRIyQWGB/8QAFAEBAAAAAAAAAAAAAAAAAAAAA//EABcRAQEBAQAAAAAAAAAAAAAAAAEAIVH/2gAMAwEAAhEDEQA/AJDTE6ierZyFK9V84W3VKMm01kdcu797fTX45VvhEg1EPPgwBePYW0IH1hJyUcv/2Q==",
+  },
+  {
+    src: "/images/hero/portrait-young-blond-smiling-woman-studying-home-remote-education-concept-connects-online.jpg",
+    blur: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAKABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAED/8QAIRAAAgICAgEFAAAAAAAAAAAAAQIDEQAEBRNBExQhMVH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABcRAAMBAAAAAAAAAAAAAAAAAAABERL/2gAMAwEAAhEDEQA/AMo9n2sIIj7lifjEbR7a6biXSqWMTGr/AA4rhI45NKJpEVz0+2F+Tk5VV9AChRkIIrwFNZWVKFZ//9k=",
+  },
 ];
 
 // Each slide gets a different Ken Burns direction
@@ -105,17 +117,19 @@ export default function Hero() {
           {/* Hero Image Slider with Ken Burns */}
           <div className="hidden lg:block relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[450px]">
-              {slides.map((src, i) => {
+              {slides.map((slide, i) => {
                 const active = i === current;
                 const kb = kenBurns[i];
                 const shouldAnimate = active && mounted;
                 return (
                   <div key={i} className="absolute inset-0">
                     <Image
-                      src={src}
+                      src={slide.src}
                       alt="Förderberatung – Beratungsgespräch für staatliche Zuschüsse"
                       fill
                       className="object-cover"
+                      placeholder="blur"
+                      blurDataURL={slide.blur}
                       style={{
                         opacity: active ? 1 : 0,
                         transform: shouldAnimate ? kb.to : kb.from,
