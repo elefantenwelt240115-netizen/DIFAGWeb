@@ -5,12 +5,9 @@ import Image from "next/image";
 
 const slides = [
   "/images/hero/explaining-project-points.jpg",
-  "/images/hero/happy-blonde-female-manager-has-conversation-with-male-colleague.jpg",
   "/images/hero/close-up-smiley-people-work.jpg",
-  "/images/hero/excited-guy-cafe-sitting-with-phone-pointing-screen-with-interest-recommending-app.jpg",
   "/images/hero/medium-shot-family-video-conference.jpg",
   "/images/hero/portrait-young-blond-smiling-woman-studying-home-remote-education-concept-connects-online.jpg",
-  "/images/hero/smiling-man-with-headphones-writing-his-diary-coffee-shop.jpg",
 ];
 
 // Each slide gets a different Ken Burns direction
@@ -19,9 +16,6 @@ const kenBurns = [
   { from: "scale(1.1)", to: "scale(1)", origin: "top left" },
   { from: "scale(1)", to: "scale(1.12)", origin: "bottom right" },
   { from: "scale(1.1)", to: "scale(1)", origin: "center right" },
-  { from: "scale(1)", to: "scale(1.1)", origin: "top center" },
-  { from: "scale(1.1)", to: "scale(1)", origin: "bottom left" },
-  { from: "scale(1)", to: "scale(1.12)", origin: "center left" },
 ];
 
 export default function Hero() {
