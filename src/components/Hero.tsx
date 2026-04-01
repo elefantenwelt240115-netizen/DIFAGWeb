@@ -4,9 +4,13 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const slides = [
-  "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_landingpage_slider_01.jpg",
-  "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_landingpage_slider_02.jpg",
-  "https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_landingpage_slider_03.jpg",
+  "/images/hero/explaining-project-points.jpg",
+  "/images/hero/happy-blonde-female-manager-has-conversation-with-male-colleague.jpg",
+  "/images/hero/close-up-smiley-people-work.jpg",
+  "/images/hero/excited-guy-cafe-sitting-with-phone-pointing-screen-with-interest-recommending-app.jpg",
+  "/images/hero/medium-shot-family-video-conference.jpg",
+  "/images/hero/portrait-young-blond-smiling-woman-studying-home-remote-education-concept-connects-online.jpg",
+  "/images/hero/smiling-man-with-headphones-writing-his-diary-coffee-shop.jpg",
 ];
 
 // Each slide gets a different Ken Burns direction
@@ -14,6 +18,10 @@ const kenBurns = [
   { from: "scale(1)", to: "scale(1.12)", origin: "center" },
   { from: "scale(1.1)", to: "scale(1)", origin: "top left" },
   { from: "scale(1)", to: "scale(1.12)", origin: "bottom right" },
+  { from: "scale(1.1)", to: "scale(1)", origin: "center right" },
+  { from: "scale(1)", to: "scale(1.1)", origin: "top center" },
+  { from: "scale(1.1)", to: "scale(1)", origin: "bottom left" },
+  { from: "scale(1)", to: "scale(1.12)", origin: "center left" },
 ];
 
 export default function Hero() {
@@ -78,10 +86,10 @@ export default function Hero() {
             {/* Trust badge with profile pictures */}
             <div className="mt-8 flex items-center gap-3">
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4, 5].map((i) => (
+                {[1, 2, 3, 4].map((i) => (
                   <Image
                     key={i}
-                    src={`/images/Profile (${i}).jpg`}
+                    src={`/images/Kunden/Profile (${i}).jpg`}
                     alt="Zufriedene Kund:innen der DIFAG"
                     width={36}
                     height={36}

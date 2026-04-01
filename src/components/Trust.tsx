@@ -19,14 +19,14 @@ function StarRating({ rating }: { rating: number }) {
 const reviews = [
   {
     platform: "Google",
-    icon: "/images/Google.png",
+    icon: "/images/logos/Google.png",
     rating: 4.9,
     count: "10.000+",
     link: "https://www.google.com/maps/place/Deutsche+Investitions-+und+F%C3%B6rderberatung+AG/@51.2562,6.7898,17z/data=!4m8!3m7!1s0x47b8ca0c3906b4a1:0x2e4e6a3b0d4f8c7a!8m2!3d51.2562!4d6.7898!9m1!1b1!16s",
   },
   {
     platform: "Trustpilot",
-    icon: "/images/Trustpilot.png",
+    icon: "/images/logos/Trustpilot.png",
     rating: 4.8,
     count: "561",
     link: "https://de.trustpilot.com/review/deutsche-foerderberatung.de",
@@ -54,7 +54,7 @@ export default function Trust() {
             className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-[transform,box-shadow] duration-300 hover:-translate-y-1 flex items-center gap-3 sm:gap-4"
           >
             <Image
-              src="https://deutsche-foerderberatung.de/wp-content/uploads/2026/02/deutsche_investitionsberatung_website_siegel_verbraucherschutz.jpg"
+              src="/images/logos/verbraucherschutz.jpg"
               alt="Verbraucherschutz.de Siegel"
               width={80}
               height={100}

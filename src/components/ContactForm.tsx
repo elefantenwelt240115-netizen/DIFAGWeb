@@ -179,7 +179,7 @@ export default function ContactForm() {
 
             <div className="relative rounded-2xl overflow-hidden">
               <Image
-                src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_kontaktoverlay.jpg"
+                src="/images/Telefonisten/ansprechpartner2.jpg"
                 alt="Förderberatung – Kontaktieren Sie unser Team in Düsseldorf"
                 width={600}
                 height={350}

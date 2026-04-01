@@ -141,7 +141,7 @@ export default function Header() {
         {/* Right side: Ansprechpartner + Phone + Status */}
         <div className="flex items-center gap-4">
           <Image
-            src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_navigation_ansprechpartner.png"
+            src="/images/Telefonisten/ansprechpartner.jpg"
             alt="Ihre persönlichen Ansprechpartner bei der DIFAG"
             width={100}
             height={40}

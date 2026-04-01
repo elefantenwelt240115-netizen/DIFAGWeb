@@ -37,7 +37,7 @@ export default function CtaBanner() {
                 </h3>
                 <div className="flex items-center gap-4 mb-6">
                   <Image
-                    src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_navigation_ansprechpartner.png"
+                    src="/images/Telefonisten/ansprechpartner.jpg"
                     alt="Ihre persönlichen Ansprechpartner bei der DIFAG"
                     width={100}
                     height={40}

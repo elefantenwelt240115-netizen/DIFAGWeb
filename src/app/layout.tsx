@@ -199,11 +199,6 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${montserrat.variable} ${playfair.variable}`}>
       <head>
-        <link rel="preconnect" href="https://deutsche-foerderberatung.de" />
-        <link
-          rel="dns-prefetch"
-          href="https://deutsche-foerderberatung.de"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLd }}

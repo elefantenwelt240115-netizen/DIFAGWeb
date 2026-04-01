@@ -75,7 +75,7 @@ export default function WhyUs() {
 
               <div className="flex items-center gap-4">
                 <Image
-                  src="https://deutsche-foerderberatung.de/wp-content/uploads/2025/11/deutsche_investitionsberatung_website_ansprechpartner_name_vorname.png"
+                  src="/images/Telefonisten/sarah.jpg"
                   alt="Sarah – Beraterin bei Deutsche Investitions- und Förderberatung AG"
                   width={60}
                   height={60}
