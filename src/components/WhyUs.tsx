@@ -79,7 +79,7 @@ export default function WhyUs() {
                   alt="Sarah – Beraterin bei Deutsche Investitions- und Förderberatung AG"
                   width={60}
                   height={60}
-                  className="h-14 w-14 rounded-full object-cover"
+                  className="h-14 w-14 rounded-full object-cover object-top"
                 />
                 <div>
                   <p className="font-bold text-navy">Sarah</p>

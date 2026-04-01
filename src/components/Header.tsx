@@ -143,9 +143,9 @@ export default function Header() {
           <Image
             src="/images/Telefonisten/ansprechpartner.jpg"
             alt="Ihre persönlichen Ansprechpartner bei der DIFAG"
-            width={100}
+            width={40}
             height={40}
-            className="hidden lg:block h-10 w-auto"
+            className="hidden lg:block h-10 w-10 rounded-full object-cover"
           />
           <a
             href="tel:021198070110"

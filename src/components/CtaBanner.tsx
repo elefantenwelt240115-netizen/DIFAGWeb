@@ -39,9 +39,9 @@ export default function CtaBanner() {
                   <Image
                     src="/images/Telefonisten/ansprechpartner.jpg"
                     alt="Ihre persönlichen Ansprechpartner bei der DIFAG"
-                    width={100}
-                    height={40}
-                    className="h-10 w-auto"
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 rounded-full object-cover"
                   />
                   <p className="text-white/70 text-sm">Ihr persönliches Beraterteam</p>
                 </div>
